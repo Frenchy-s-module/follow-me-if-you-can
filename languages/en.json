@@ -1,0 +1,39 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Keep following on scene change",
+                "Hint": "If enabled, tokens will continue following their target even after scene changes"
+            },
+            "InstantFollow": {
+                "Name": "Instant following",
+                "Hint": "If enabled, tokens will instantly move to their new position. If disabled, they will move with a smooth animation"
+            },
+            "GitHub": {
+                "Hint": "Click to visit the module's GitHub"
+            }
+        },
+        "Controls": {
+            "StopAll": "Stop all following",
+            "SelectToFollow": "Select a token to follow"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count} following(s) stopped",
+            "NoActiveFollowing": "No active following",
+            "SelectTarget": "Click on the token you want to follow",
+            "StartedFollowing": "{source} started following {target}",
+            "FollowCanceled": "Following canceled",
+            "StoppedFollowing": "Token {name} stopped following its target",
+            "CircularFollowingPrevented": "{follower} cannot follow {target} because {target} is already following {follower}"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "Confirm Following",
+                "Content": "{source} will follow {target}. Are you sure?"
+            },
+            "Yes": "Yes",
+            "No": "No",
+            "Canceled": "Following canceled"
+        }
+    }
+}

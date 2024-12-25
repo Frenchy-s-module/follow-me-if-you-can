@@ -1,0 +1,39 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "シーン変更後も追従を維持",
+                "Hint": "有効にすると、シーンが変更された後もトークンは目標を追い続けます"
+            },
+            "InstantFollow": {
+                "Name": "即時追従",
+                "Hint": "有効にすると、トークンは新しい位置に即座に移動します。無効にすると、滑らかなアニメーションで移動します"
+            },
+            "GitHub": {
+                "Hint": "モジュールのGitHubを開く"
+            }
+        },
+        "Controls": {
+            "StopAll": "すべての追従を停止",
+            "SelectToFollow": "追従するトークンを選択"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count}件の追従を停止しました",
+            "NoActiveFollowing": "アクティブな追従はありません",
+            "SelectTarget": "追従したいトークンをクリックしてください",
+            "StartedFollowing": "{source}が{target}の追従を開始しました",
+            "FollowCanceled": "追従がキャンセルされました",
+            "StoppedFollowing": "トークン{name}が追従を停止しました",
+            "CircularFollowingPrevented": "{target}が{follower}を追従しているため、{follower}は{target}を追従できません"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "追従の確認",
+                "Content": "{source}が{target}を追従します。よろしいですか？"
+            },
+            "Yes": "はい",
+            "No": "いいえ",
+            "Canceled": "追従がキャンセルされました"
+        }
+    }
+}

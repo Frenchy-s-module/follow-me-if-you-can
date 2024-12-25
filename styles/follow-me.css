@@ -1,0 +1,20 @@
+.follow-token {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.follow-token:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.follow-token i {
+    color: white;
+    font-size: 20px;
+}

@@ -1,0 +1,39 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Verfolgung bei Szenenwechsel beibehalten",
+                "Hint": "Wenn aktiviert, folgen die Tokens ihrem Ziel auch nach einem Szenenwechsel weiter"
+            },
+            "InstantFollow": {
+                "Name": "Sofortige Verfolgung",
+                "Hint": "Wenn aktiviert, bewegen sich die Tokens sofort zur neuen Position. Wenn deaktiviert, bewegen sie sich mit einer flüssigen Animation"
+            },
+            "GitHub": {
+                "Hint": "Klicken Sie hier, um das GitHub des Moduls zu besuchen"
+            }
+        },
+        "Controls": {
+            "StopAll": "Alle Verfolgungen stoppen",
+            "SelectToFollow": "Token zum Folgen auswählen"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count} Verfolgung(en) gestoppt",
+            "NoActiveFollowing": "Keine aktiven Verfolgungen",
+            "SelectTarget": "Klicke auf den Token, dem du folgen möchtest",
+            "StartedFollowing": "{source} folgt jetzt {target}",
+            "FollowCanceled": "Verfolgung abgebrochen",
+            "StoppedFollowing": "Token {name} hat aufgehört seinem Ziel zu folgen",
+            "CircularFollowingPrevented": "{follower} kann {target} nicht folgen, da {target} bereits {follower} folgt"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "Verfolgung bestätigen",
+                "Content": "Soll {source} {target} folgen?"
+            },
+            "Yes": "Ja",
+            "No": "Nein",
+            "Canceled": "Verfolgung abgebrochen"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "follow-me-if-you-can",
+  "title": "Follow Me If You Can",
+  "description": "A module that allows tokens to follow other tokens on the map",
+  "version": "1.0.0",
+  "author": "Frenchy",
+  "authors": [
+    {
+      "name": "Frenchy",
+      "url": "https://github.com/Frenchy-s-module"
+    }
+  ],
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "11",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11"
+  },
+  "scripts": [
+    "scripts/main.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "languages/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "languages/de.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "languages/es.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "languages/it.json"
+    },
+    {
+      "lang": "ja",
+      "name": "日本語",
+      "path": "languages/ja.json"
+    },
+    {
+      "lang": "ko",
+      "name": "한국어",
+      "path": "languages/ko.json"
+    },
+    {
+      "lang": "nl",
+      "name": "Nederlands",
+      "path": "languages/nl.json"
+    },
+    {
+      "lang": "zh",
+      "name": "中文",
+      "path": "languages/zh.json"
+    }
+  ],
+  "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/latest/download/module.json",
+  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/latest/download/module.zip"
+}
