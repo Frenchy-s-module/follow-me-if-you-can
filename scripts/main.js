@@ -237,9 +237,13 @@ async function startFollowing(follower, target) {
         // Détecter si c'est un drag and drop (changement de position)
         const isDragDrop = changes.x !== undefined && changes.y !== undefined;
 
-        // Si c'est un drag & drop et que l'utilisateur est le GM, autoriser le déplacement
-        if (isDragDrop && game.user.isGM) {
-            return;
+        // Log des changements de position
+        if (isDragDrop) {
+            console.log("Follow Me If You Can | Drag and Drop détecté", {
+                changes,
+                tokenId: tokenDoc.id,
+                tokenName: tokenDoc.name
+            });
         }
 
         const followerToken = canvas.tokens.get(follower.document.id);
@@ -260,78 +264,41 @@ async function startFollowing(follower, target) {
             return;
         }
 
+        // Log des positions initiales
+        console.log("Follow Me If You Can | Positions initiales", {
+            target: {
+                name: tokenDoc.name,
+                currentX: tokenDoc.x,
+                currentY: tokenDoc.y,
+                destinationX: changes.x,
+                destinationY: changes.y
+            },
+            follower: {
+                name: followerToken.name,
+                currentX: followerToken.x,
+                currentY: followerToken.y
+            }
+        });
+
         // Continuer avec la logique de déplacement existante
         if (isDragDrop) {
-            // Log des positions initiales
-            console.log("Follow Me If You Can | Positions initiales", {
-                target: {
-                    name: tokenDoc.name,
-                    currentX: tokenDoc.x,
-                    currentY: tokenDoc.y,
-                    destinationX: changes.x,
-                    destinationY: changes.y
-                },
-                follower: {
-                    name: followerToken.name,
-                    currentX: followerToken.x,
-                    currentY: followerToken.y
-                }
-            });
-
-            // Obtenir la position finale du token cible directement depuis changes
-            const targetGridX = Math.round(changes.x / canvas.grid.size);
-            const targetGridY = Math.round(changes.y / canvas.grid.size);
-            
             // Calculer la direction du mouvement
             const dx = changes.x - followerToken.x;
             const dy = changes.y - followerToken.y;
             const angle = Math.atan2(dy, dx);
             
             // Déterminer la direction principale du mouvement
-            let offsetX = 0;
-            let offsetY = 0;
+            const offsetX = Math.round(Math.cos(angle)) * canvas.grid.size;
+            const offsetY = Math.round(Math.sin(angle)) * canvas.grid.size;
 
-            // Convertir l'angle en direction de grille
-            const degrees = angle * (180 / Math.PI);
-            if (degrees >= -45 && degrees < 45) { // Mouvement vers la droite
-                offsetX = -1;
-            } else if (degrees >= 45 && degrees < 135) { // Mouvement vers le bas
-                offsetY = -1;
-            } else if (degrees >= -135 && degrees < -45) { // Mouvement vers le haut
-                offsetY = 1;
-            } else { // Mouvement vers la gauche
-                offsetX = 1;
-            }
+            // Calculer la position finale du suiveur pour qu'il soit derrière le token suivi
+            const followX = changes.x - offsetX;
+            const followY = changes.y - offsetY;
 
-            // Calculer la position finale en coordonnées de grille
-            const followGridX = targetGridX + offsetX;
-            const followGridY = targetGridY + offsetY;
-
-            // Convertir en pixels
-            const followX = followGridX * canvas.grid.size;
-            const followY = followGridY * canvas.grid.size;
-
-            // Log détaillé des calculs
-            console.log("Follow Me If You Can | Calculs de position", {
-                target: {
-                    gridX: targetGridX,
-                    gridY: targetGridY,
-                    pixelX: changes.x,
-                    pixelY: changes.y
-                },
-                movement: {
-                    dx,
-                    dy,
-                    angle: degrees,
-                    offsetX,
-                    offsetY
-                },
-                follower: {
-                    gridX: followGridX,
-                    gridY: followGridY,
-                    pixelX: followX,
-                    pixelY: followY
-                }
+            console.log("Follow Me If You Can | Mise à jour de la position du suiveur", {
+                followX,
+                followY,
+                isInstant: game.settings.get("follow-me-if-you-can", "instantFollow")
             });
 
             const isInstant = game.settings.get("follow-me-if-you-can", "instantFollow");
@@ -354,8 +321,15 @@ async function startFollowing(follower, target) {
             const angle = Math.atan2(dy, dx);
             
             // Déterminer la direction principale du mouvement
-            let offsetX = Math.round(Math.cos(angle)) * canvas.grid.size;
-            let offsetY = Math.round(Math.sin(angle)) * canvas.grid.size;
+            const offsetX = Math.round(Math.cos(angle)) * canvas.grid.size;
+            const offsetY = Math.round(Math.sin(angle)) * canvas.grid.size;
+
+            console.log("Follow Me If You Can | Déplacement normal", {
+                targetX,
+                targetY,
+                offsetX,
+                offsetY
+            });
 
             const isInstant = game.settings.get("follow-me-if-you-can", "instantFollow");
             await followerToken.document.update({
@@ -474,3 +448,24 @@ function cleanupAllFollows() {
     }
     lastPositions.clear();
 }
+
+// Fonction pour réenregistrer les hooks
+function registerHooks() {
+    Hooks.on('updateToken', handleTokenUpdate);
+}
+
+// Fonction pour gérer la mise à jour des tokens
+async function handleTokenUpdate(tokenDoc, changes) {
+    // Votre logique de suivi ici
+}
+
+// Enregistrer les hooks lors de l'initialisation
+Hooks.once('init', () => {
+    registerHooks();
+});
+
+// Réenregistrer les hooks lors du changement de scène
+Hooks.on('canvasReady', () => {
+    console.log("Follow Me If You Can | Changement de scène détecté, réenregistrement des hooks");
+    registerHooks();
+});
