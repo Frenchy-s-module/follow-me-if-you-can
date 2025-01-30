@@ -14,16 +14,19 @@
             }
         },
         "Controls": {
+            "Start": "Start following (select a token to follow)",
             "StopAll": "Stop all following",
             "SelectToFollow": "Select a token to follow"
         },
         "Notifications": {
             "FollowingStopped": "{count} following(s) stopped",
             "NoActiveFollowing": "No active following",
+            "SelectSource": "Select a token that will be the source of following",
             "SelectTarget": "Click on the token you want to follow",
             "StartedFollowing": "{source} started following {target}",
             "FollowCanceled": "Following canceled",
             "StoppedFollowing": "Token {name} stopped following its target",
+            "NoFollowers": "No tokens are currently following",
             "CircularFollowingPrevented": "{follower} cannot follow {target} because {target} is already following {follower}"
         },
         "Dialog": {

@@ -7,23 +7,26 @@
             },
             "InstantFollow": {
                 "Name": "Direct volgen",
-                "Hint": "Indien ingeschakeld verplaatsen tokens zich direct naar hun nieuwe positie. Indien uitgeschakeld verplaatsen ze zich met een vloeiende animatie"
+                "Hint": "Indien ingeschakeld verplaatsen tokens zich direct naar hun nieuwe positie. Indien uitgeschakeld bewegen ze met een vloeiende animatie"
             },
             "GitHub": {
                 "Hint": "Klik om de GitHub van de module te bezoeken"
             }
         },
         "Controls": {
+            "Start": "Start volgen (selecteer een token om te volgen)",
             "StopAll": "Stop alle volgacties",
             "SelectToFollow": "Selecteer een token om te volgen"
         },
         "Notifications": {
             "FollowingStopped": "{count} volgactie(s) gestopt",
             "NoActiveFollowing": "Geen actieve volgacties",
+            "SelectSource": "Selecteer een token dat de bron van het volgen zal zijn",
             "SelectTarget": "Klik op de token die je wilt volgen",
-            "StartedFollowing": "{source} volgt nu {target}",
+            "StartedFollowing": "{source} begint {target} te volgen",
             "FollowCanceled": "Volgen geannuleerd",
-            "StoppedFollowing": "Token {name} is gestopt met volgen",
+            "StoppedFollowing": "Token {name} is gestopt met het volgen van zijn doel",
+            "NoFollowers": "Er zijn momenteel geen tokens die volgen",
             "CircularFollowingPrevented": "{follower} kan {target} niet volgen omdat {target} al {follower} volgt"
         },
         "Dialog": {

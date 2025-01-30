@@ -3,27 +3,30 @@
         "Settings": {
             "KeepFollowing": {
                 "Name": "Mantieni il seguimento al cambio scena",
-                "Hint": "Se attivato, i token continueranno a seguire il loro obiettivo anche dopo il cambio di scena"
+                "Hint": "Se attivato, i token continueranno a seguire il loro obiettivo anche dopo un cambio di scena"
             },
             "InstantFollow": {
                 "Name": "Seguimento istantaneo",
-                "Hint": "Se attivato, i token si sposteranno istantaneamente nella nuova posizione. Se disattivato, si sposteranno con un'animazione fluida"
+                "Hint": "Se attivato, i token si sposteranno istantaneamente nella nuova posizione. Se disattivato, si muoveranno con un'animazione fluida"
             },
             "GitHub": {
                 "Hint": "Clicca per visitare il GitHub del modulo"
             }
         },
         "Controls": {
+            "Start": "Avvia seguimento (seleziona un token da seguire)",
             "StopAll": "Ferma tutti i seguimenti",
             "SelectToFollow": "Seleziona un token da seguire"
         },
         "Notifications": {
-            "FollowingStopped": "{count} seguimento(i) fermato(i)",
+            "FollowingStopped": "{count} seguimento/i fermato/i",
             "NoActiveFollowing": "Nessun seguimento attivo",
-            "SelectTarget": "Clicca sul token che vuoi seguire",
-            "StartedFollowing": "{source} ha iniziato a seguire {target}",
+            "SelectSource": "Seleziona un token che sarà la fonte del seguimento",
+            "SelectTarget": "Clicca sul token che desideri seguire",
+            "StartedFollowing": "{source} inizia a seguire {target}",
             "FollowCanceled": "Seguimento annullato",
             "StoppedFollowing": "Il token {name} ha smesso di seguire il suo obiettivo",
+            "NoFollowers": "Nessun token sta seguendo al momento",
             "CircularFollowingPrevented": "{follower} non può seguire {target} perché {target} sta già seguendo {follower}"
         },
         "Dialog": {

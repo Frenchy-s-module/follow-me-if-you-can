@@ -64,6 +64,16 @@
       "lang": "zh",
       "name": "中文",
       "path": "languages/zh.json"
+    },
+    {
+      "lang": "da",
+      "name": "Dansk",
+      "path": "languages/da.json"
+    },
+    {
+      "lang": "no",
+      "name": "Norsk",
+      "path": "languages/no.json"
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",

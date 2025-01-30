@@ -2,34 +2,37 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "场景更改时保持跟随",
-                "Hint": "启用后，指示物将在场景更改后继续跟随其目标"
+                "Name": "场景切换后保持跟随",
+                "Hint": "启用后，指示物将在场景切换后继续跟随其目标"
             },
             "InstantFollow": {
                 "Name": "即时跟随",
-                "Hint": "启用后，指示物将立即移动到新位置。禁用后，将以平滑动画方式移动"
+                "Hint": "启用后，指示物将立即移动到新位置。禁用后，将以流畅的动画方式移动"
             },
             "GitHub": {
                 "Hint": "点击访问模块的GitHub"
             }
         },
         "Controls": {
+            "Start": "开始跟随（选择要跟随的指示物）",
             "StopAll": "停止所有跟随",
             "SelectToFollow": "选择要跟随的指示物"
         },
         "Notifications": {
-            "FollowingStopped": "已停止 {count} 个跟随",
+            "FollowingStopped": "已停止{count}个跟随",
             "NoActiveFollowing": "没有活动的跟随",
-            "SelectTarget": "点击要跟随的指示物",
-            "StartedFollowing": "{source} 开始跟随 {target}",
+            "SelectSource": "选择作为跟随源的指示物",
+            "SelectTarget": "点击你想要跟随的指示物",
+            "StartedFollowing": "{source}开始跟随{target}",
             "FollowCanceled": "跟随已取消",
-            "StoppedFollowing": "指示物 {name} 已停止跟随目标",
-            "CircularFollowingPrevented": "{target} 已在跟随 {follower}，因此 {follower} 无法跟随 {target}"
+            "StoppedFollowing": "指示物{name}已停止跟随其目标",
+            "NoFollowers": "当前没有指示物在跟随",
+            "CircularFollowingPrevented": "{target}已经在跟随{follower}，所以{follower}无法跟随{target}"
         },
         "Dialog": {
             "ConfirmFollow": {
                 "Title": "确认跟随",
-                "Content": "{source} 将跟随 {target}。确定吗？"
+                "Content": "{source}将跟随{target}。确定吗？"
             },
             "Yes": "是",
             "No": "否",

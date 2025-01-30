@@ -18,3 +18,41 @@
     color: white;
     font-size: 20px;
 }
+
+/* Floating controls container */
+#follow-me-controls {
+    position: fixed;
+    top: 120px;
+    right: 120px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 70;
+    pointer-events: all;
+}
+
+.follow-me-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(50, 50, 50, 0.9);
+    border: 2px solid #ffd700;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+    pointer-events: all;
+}
+
+.follow-me-button:hover {
+    transform: scale(1.1);
+    background: rgba(70, 70, 70, 0.95);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.follow-me-button i {
+    color: #ffd700;
+    font-size: 22px;
+}

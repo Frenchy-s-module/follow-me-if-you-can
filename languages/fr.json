@@ -14,16 +14,19 @@
             }
         },
         "Controls": {
+            "Start": "Démarrer le suivi (sélectionnez un token à suivre)",
             "StopAll": "Arrêter tous les suivis",
             "SelectToFollow": "Sélectionnez un token à suivre"
         },
         "Notifications": {
             "FollowingStopped": "{count} suivi(s) arrêté(s)",
             "NoActiveFollowing": "Aucun suivi actif",
+            "SelectSource": "Sélectionnez un token qui sera la source du suivi",
             "SelectTarget": "Cliquez sur le token que vous souhaitez suivre",
             "StartedFollowing": "{source} commence à suivre {target}",
             "FollowCanceled": "Suivi annulé",
             "StoppedFollowing": "Le token {name} a arrêté de suivre sa cible",
+            "NoFollowers": "Aucun token ne suit actuellement",
             "CircularFollowingPrevented": "{follower} ne peut pas suivre {target} car {target} suit déjà {follower}"
         },
         "Dialog": {
