@@ -1,8 +1,6 @@
 // Initialisation du module
 class FollowMeIfYouCan {
     static init() {
-        console.log("Follow Me If You Can | Chargement du module");
-        
         // Ajout du lien vers GitHub
         game.settings.registerMenu("follow-me-if-you-can", "githubLink", {
             name: "GitHub",
@@ -41,7 +39,6 @@ class FollowMeIfYouCan {
     }
 
     static ready() {
-        console.log("Follow Me If You Can | Module prêt");
         if (game.user.isGM) {
             createFloatingControls();
         }
@@ -54,7 +51,6 @@ let followData = {
     saveToFlags: async function() {
         const data = Array.from(this.relationships.values());
         await game.settings.set('follow-me-if-you-can', 'followRelationships', data);
-        console.log("Follow Me If You Can | Relations de suivi sauvegardées", data);
     },
     loadFromFlags: async function() {
         const data = game.settings.get('follow-me-if-you-can', 'followRelationships') || [];
@@ -62,13 +58,11 @@ let followData = {
         data.forEach(rel => {
             this.relationships.set(rel.followerId, rel);
         });
-        console.log("Follow Me If You Can | Relations de suivi chargées", data);
         return data;
     },
     clearAll: async function() {
         this.relationships.clear();
         await game.settings.set('follow-me-if-you-can', 'followRelationships', []);
-        console.log("Follow Me If You Can | Toutes les relations de suivi ont été effacées");
     }
 };
 
@@ -85,15 +79,11 @@ function updateControlsPosition(container) {
 
 // Création des boutons flottants
 function createFloatingControls() {
-    console.log("Follow Me If You Can | Creating floating controls");
-    
     let controlsContainer = document.getElementById('follow-me-controls');
     if (controlsContainer) {
-        console.log("Follow Me If You Can | Controls container already exists");
         return;
     }
     
-    console.log("Follow Me If You Can | Creating new container");
     controlsContainer = document.createElement('div');
     controlsContainer.id = 'follow-me-controls';
     
@@ -111,10 +101,8 @@ function createFloatingControls() {
     const interfaceElement = document.getElementById('interface');
     if (interfaceElement) {
         interfaceElement.appendChild(controlsContainer);
-        console.log("Follow Me If You Can | Container added to interface");
     } else {
         document.body.appendChild(controlsContainer);
-        console.log("Follow Me If You Can | Container added to body (fallback)");
     }
 
     // Gestionnaires d'événements pour la position
@@ -147,7 +135,6 @@ function createFloatingControls() {
     startButton.innerHTML = '<i class="fas fa-user-plus" style="color: #ffd700; font-size: 22px;"></i>';
     startButton.title = game.i18n.localize("FOLLOWMEIFYOUCAN.Controls.Start");
     startButton.onclick = () => {
-        console.log("Follow Me If You Can | Start button clicked");
         const followerToken = canvas.tokens.controlled[0];
         if (followerToken) {
             selectionMode = true;
@@ -194,7 +181,6 @@ function createFloatingControls() {
     stopButton.innerHTML = '<i class="fas fa-user-slash" style="color: #ffd700; font-size: 22px;"></i>';
     stopButton.title = game.i18n.localize("FOLLOWMEIFYOUCAN.Controls.StopAll");
     stopButton.onclick = () => {
-        console.log("Follow Me If You Can | Stop button clicked");
         let count = 0;
 
         if (game.follow?.hooks) {
@@ -279,11 +265,6 @@ Hooks.once('ready', FollowMeIfYouCan.ready);
 
 // Fonction pour démarrer le suivi entre deux tokens
 function startFollowing(followerToken, targetToken) {
-    console.log("Follow Me If You Can | Starting follow process", {
-        follower: followerToken,
-        target: targetToken
-    });
-
     // Vérifier si le suivi créerait une boucle
     if (isCircularFollowing(followerToken, targetToken)) {
         ui.notifications.warn(game.i18n.format("FOLLOWMEIFYOUCAN.Notifications.CircularFollowingPrevented", {
@@ -314,18 +295,8 @@ function startFollowing(followerToken, targetToken) {
         // Détecter si c'est un drag and drop (changement de position)
         const isDragDrop = changes.x !== undefined && changes.y !== undefined;
 
-        // Log des changements de position
-        if (isDragDrop) {
-            console.log("Follow Me If You Can | Drag and Drop détecté", {
-                changes,
-                tokenId: tokenDoc.id,
-                tokenName: tokenDoc.name
-            });
-        }
-
         const followerTokenDoc = canvas.tokens.get(followerToken.id);
         if (!followerTokenDoc) {
-            console.log("Follow Me If You Can | Token suiveur non trouvé");
             return;
         }
 
@@ -337,25 +308,8 @@ function startFollowing(followerToken, targetToken) {
             Math.round(targetDestY / canvas.grid.size) === Math.round(followerTokenDoc.y / canvas.grid.size);
 
         if (isMovingToFollowerPosition) {
-            console.log("Follow Me If You Can | Le token cible essaie de se déplacer sur la position du suiveur - Pas de déplacement du suiveur");
             return;
         }
-
-        // Log des positions initiales
-        console.log("Follow Me If You Can | Positions initiales", {
-            target: {
-                name: tokenDoc.name,
-                currentX: tokenDoc.x,
-                currentY: tokenDoc.y,
-                destinationX: changes.x,
-                destinationY: changes.y
-            },
-            follower: {
-                name: followerTokenDoc.name,
-                currentX: followerTokenDoc.x,
-                currentY: followerTokenDoc.y
-            }
-        });
 
         if (isDragDrop) {
             // Calculer la direction du mouvement
@@ -370,12 +324,6 @@ function startFollowing(followerToken, targetToken) {
             // Calculer la position finale du suiveur pour qu'il soit derrière le token suivi
             const followX = changes.x - offsetX;
             const followY = changes.y - offsetY;
-
-            console.log("Follow Me If You Can | Mise à jour de la position du suiveur", {
-                followX,
-                followY,
-                isInstant: game.settings.get("follow-me-if-you-can", "instantFollow")
-            });
 
             const isInstant = game.settings.get("follow-me-if-you-can", "instantFollow");
             await followerTokenDoc.document.update({
@@ -396,13 +344,6 @@ function startFollowing(followerToken, targetToken) {
             // Déterminer la direction principale du mouvement
             const offsetX = Math.round(Math.cos(angle)) * canvas.grid.size;
             const offsetY = Math.round(Math.sin(angle)) * canvas.grid.size;
-
-            console.log("Follow Me If You Can | Déplacement normal", {
-                targetX,
-                targetY,
-                offsetX,
-                offsetY
-            });
 
             const isInstant = game.settings.get("follow-me-if-you-can", "instantFollow");
             await followerTokenDoc.document.update({
@@ -461,7 +402,6 @@ function stopFollowing(followerId) {
         game.follow.hooks.delete(followerId);
         followData.relationships.delete(followerId);
         followData.saveToFlags();
-        console.log("Follow Me If You Can | Suivi arrêté pour", followerId);
     }
 }
 
@@ -472,15 +412,11 @@ Hooks.on('deleteToken', (token) => {
 
 // Gestion du changement de scène
 Hooks.on('canvasReady', async () => {
-    console.log("Follow Me If You Can | Canvas prêt, vérification des suivis");
-    
     // Si l'option est activée, restaurer les suivis
     if (game.settings.get('follow-me-if-you-can', 'keepFollowingOnSceneChange')) {
         const relationships = await followData.loadFromFlags();
         
         if (relationships && relationships.length > 0) {
-            console.log("Follow Me If You Can | Restauration des suivis", relationships);
-            
             for (const rel of relationships) {
                 // Chercher les tokens correspondants dans la scène actuelle
                 const followerToken = canvas.tokens.placeables.find(t => 
@@ -491,10 +427,6 @@ Hooks.on('canvasReady', async () => {
                 );
                 
                 if (followerToken && targetToken) {
-                    console.log("Follow Me If You Can | Restauration du suivi", {
-                        follower: followerToken.name,
-                        target: targetToken.name
-                    });
                     startFollowing(followerToken, targetToken);
                 }
             }
@@ -519,6 +451,5 @@ Hooks.once('init', () => {
 
 // Réenregistrer les hooks lors du changement de scène
 Hooks.on('canvasReady', () => {
-    console.log("Follow Me If You Can | Changement de scène détecté, réenregistrement des hooks");
     registerHooks();
 });
