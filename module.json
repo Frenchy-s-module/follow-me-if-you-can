@@ -74,6 +74,11 @@
       "lang": "no",
       "name": "Norsk",
       "path": "languages/no.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "languages/pl.json"
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
