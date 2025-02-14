@@ -1,0 +1,42 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Podążaj dalej ze zmianą sceny",
+                "Hint": "Jeśli ta opcja jest włączona, tokeny będą podążać za swoim celem nawet po zmianie sceny."
+            },
+            "InstantFollow": {
+                "Name": "Natychmiastowe przemieszczenie",
+                "Hint": "Jeśli opcja ta jest włączona, tokeny będą natychmiast przemieszczać się do nowej pozycji. Jeśli jest wyłączona, będą poruszać się z płynną animacją"
+            },
+            "GitHub": {
+                "Hint": "Kliknij, aby odwiedzić GitHub modułu"
+            }
+        },
+        "Controls": {
+            "Start": "Zacznij podążać (wybierz token do podążania)",
+            "StopAll": "Przestań podążać",
+            "SelectToFollow": "Wybierz token do podążania"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count} podążających osób zostało zatrzymanych",
+            "NoActiveFollowing": "Brak aktywnych podążających",
+            "SelectSource": "Wybierz token, który będzie źródłem dla podążających",
+            "SelectTarget": "Kliknij token, za którym chcesz podążać",
+            "StartedFollowing": "{source} zaczął podążać za {target}",
+            "FollowCanceled": "Anulowanie podążania",
+            "StoppedFollowing": "Token {name} przestał podążać za swoim celem",
+            "NoFollowers": "Obecnie nie ma żadnych podążających tokenów",
+            "CircularFollowingPrevented": "{follower} nie może podążać za {target}, ponieważ {target} już podąża za {follower}"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "Potwierdź podążanie",
+                "Content": "{source} będzie podążać za {target}. Czy na pewno?"
+            },
+            "Yes": "Tak",
+            "No": "Nie",
+            "Canceled": "Anulowanie podążania"
+        }
+    }
+}
