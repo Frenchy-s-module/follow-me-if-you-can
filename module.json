@@ -2,7 +2,7 @@
   "id": "follow-me-if-you-can",
   "title": "Follow Me If You Can",
   "description": "A module that allows tokens to follow other tokens on the map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Frenchy's Module",
   "authors": [
     {
@@ -82,6 +82,6 @@
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
-  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.0/module.json",
-  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.0/follow-me-if-you-can.zip"
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.1/module.json",
+  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.1/follow-me-if-you-can.zip"
 }
