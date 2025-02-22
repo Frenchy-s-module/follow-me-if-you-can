@@ -1,0 +1,42 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Verfolgung bei Szenenwechsel beibehalten",
+                "Hint": "Wenn aktiviert, folgen die Tokens ihrem Ziel auch nach einem Szenenwechsel weiter"
+            },
+            "InstantFollow": {
+                "Name": "Sofortige Verfolgung",
+                "Hint": "Wenn aktiviert, bewegen sich die Tokens sofort zu ihrer neuen Position. Wenn deaktiviert, bewegen sie sich mit einer flüssigen Animation"
+            },
+            "GitHub": {
+                "Hint": "Klicken Sie hier, um das GitHub des Moduls zu besuchen"
+            }
+        },
+        "Controls": {
+            "Start": "Verfolgung starten (Token zum Folgen auswählen)",
+            "StopAll": "Alle Verfolgungen stoppen",
+            "SelectToFollow": "Token zum Folgen auswählen"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count} Verfolgung(en) gestoppt",
+            "NoActiveFollowing": "Keine aktive Verfolgung",
+            "SelectSource": "Wählen Sie ein Token als Quelle der Verfolgung",
+            "SelectTarget": "Klicken Sie auf das Token, dem Sie folgen möchten",
+            "StartedFollowing": "{source} beginnt {target} zu folgen",
+            "FollowCanceled": "Verfolgung abgebrochen",
+            "StoppedFollowing": "Token {name} hat aufgehört, seinem Ziel zu folgen",
+            "NoFollowers": "Derzeit folgen keine Tokens",
+            "CircularFollowingPrevented": "{follower} kann {target} nicht folgen, da {target} bereits {follower} folgt"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "Verfolgung bestätigen",
+                "Content": "{source} wird {target} folgen. Sind Sie sicher?"
+            },
+            "Yes": "Ja",
+            "No": "Nein",
+            "Canceled": "Verfolgung abgebrochen"
+        }
+    }
+}

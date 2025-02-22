@@ -1,0 +1,42 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Behold følging ved sceneskifte",
+                "Hint": "Hvis aktivert, vil tokens fortsette å følge målet sitt selv etter et sceneskifte"
+            },
+            "InstantFollow": {
+                "Name": "Øyeblikkelig følging",
+                "Hint": "Hvis aktivert, vil tokens øyeblikkelig flytte til sin nye posisjon. Hvis deaktivert, vil de bevege seg med en flytende animasjon"
+            },
+            "GitHub": {
+                "Hint": "Klikk for å besøke modulens GitHub"
+            }
+        },
+        "Controls": {
+            "Start": "Start følging (velg et token å følge)",
+            "StopAll": "Stopp all følging",
+            "SelectToFollow": "Velg et token å følge"
+        },
+        "Notifications": {
+            "FollowingStopped": "{count} følging(er) stoppet",
+            "NoActiveFollowing": "Ingen aktiv følging",
+            "SelectSource": "Velg et token som skal være kilden til følging",
+            "SelectTarget": "Klikk på tokenet du ønsker å følge",
+            "StartedFollowing": "{source} begynner å følge {target}",
+            "FollowCanceled": "Følging avbrutt",
+            "StoppedFollowing": "Token {name} stoppet å følge målet sitt",
+            "NoFollowers": "Ingen tokens følger for øyeblikket",
+            "CircularFollowingPrevented": "{follower} kan ikke følge {target} fordi {target} allerede følger {follower}"
+        },
+        "Dialog": {
+            "ConfirmFollow": {
+                "Title": "Bekreft følging",
+                "Content": "{source} vil følge {target}. Er du sikker?"
+            },
+            "Yes": "Ja",
+            "No": "Nei",
+            "Canceled": "Følging avbrutt"
+        }
+    }
+}
