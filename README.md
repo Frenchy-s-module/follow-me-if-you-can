@@ -11,7 +11,7 @@
 
 ### 🌐 Available Languages
 
-[🇬🇧](#english) [🇩🇰](#dansk) [🇩🇪](#deutsch) [🇪🇸](#español) [🇫🇷](#français) [🇮🇹](#italiano) [🇯🇵](#日本語) [🇰🇷](#한국어) [🇳🇱](#nederlands) [🇳🇴](#norsk) [🇨🇳](#中文)
+[🇬🇧](#english) [🇩🇰](#dansk) [🇩🇪](#deutsch) [🇪🇸](#español) [🇫🇷](#français) [🇮🇹](#italiano) [🇯🇵](#日本語) [🇰🇷](#한국어) [🇳🇱](#nederlands) [🇳🇴](#norsk) [🇵🇱](#polski) [🇨🇳](#中文)
 
 ---
 
@@ -198,6 +198,21 @@ Follow Me If You Can er en kraftig Foundry VTT-modul som lar tokens følge andre
 - 🌐 Støtter flere språk
 
 [🔝 Tilbake til toppen](#follow-me-if-you-can)
+
+---
+
+<h2 id="polski">🇵🇱 Polski</h2>
+
+## Przegląd
+Follow Me If You Can to potężny moduł Foundry VTT, który umożliwia znacznikom podążanie za innymi znacznikami na mapie. Idealny do zarządzania grupami, BN-ami lub tworzenia dynamicznych sekwencji pościgu.
+
+### Kluczowe funkcje
+- 🎯 Znaczniki mogą podążać za innymi znacznikami
+- 🔄 Automatyczne podążanie za liderem grupy
+- ⚡ Opcja natychmiastowego lub animowanego ruchu
+- 🎮 Intuicyjny interfejs z pływającymi przyciskami
+- 🛡️ Zapobiega tworzeniu się zapętleń w śledzeniu
+- 🌐 Obsługa wielu języków
 
 ---
 
