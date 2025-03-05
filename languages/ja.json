@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "シーン変更後も追跡を維持",
-                "Hint": "有効にすると、シーン変更後もトークンは目標を追跡し続けます"
+                "Name": "シーン変更時に追跡を維持",
+                "Hint": "これを有効にすると、トークンはシーンを変更した後でもターゲットを追跡し続けます。"
             },
             "InstantFollow": {
-                "Name": "即時追跡",
-                "Hint": "有効にすると、トークンは新しい位置に即座に移動します。無効にすると、滑らかなアニメーションで移動します"
+                "Name": "インスタント追跡",
+                "Hint": "これを有効にすると、フォロワートークンはターゲットの位置に移動する際に、徐々にではなく即座に移動します。"
+            },
+            "PlayerAccess": {
+                "Name": "プレイヤーのアクセス",
+                "Hint": "これを有効にすると、プレイヤーはトークン追跡機能にアクセスできます。"
+            },
+            "ShowFloatingButtons": {
+                "Name": "浮遊ボタンを表示",
+                "Hint": "これを有効にすると、追跡コマンドに簡単にアクセスできる浮遊ボタンが表示されます。"
             },
             "GitHub": {
-                "Hint": "モジュールのGitHubを訪問するにはクリックしてください"
+                "Hint": "モジュールのGitHubページを訪問するにはクリックしてください"
             }
         },
         "Controls": {
-            "Start": "追跡開始（追跡するトークンを選択）",
-            "StopAll": "すべての追跡を停止",
-            "SelectToFollow": "追跡するトークンを選択"
+            "Start": "トークンの追跡を開始",
+            "Stop": "追跡を停止",
+            "StopAll": "追跡管理",
+            "SelectToFollow": "追跡するトークンを選択",
+            "Home": "コントロール位置をリセット",
+            "DragHandle": "コントロールを移動"
         },
         "Notifications": {
-            "FollowingStopped": "{count}件の追跡を停止しました",
-            "NoActiveFollowing": "アクティブな追跡はありません",
-            "SelectSource": "追跡の元となるトークンを選択してください",
-            "SelectTarget": "追跡したいトークンをクリックしてください",
-            "StartedFollowing": "{source}が{target}の追跡を開始しました",
-            "FollowCanceled": "追跡をキャンセルしました",
-            "StoppedFollowing": "トークン{name}が目標の追跡を停止しました",
-            "NoFollowers": "現在追跡しているトークンはありません",
-            "CircularFollowingPrevented": "{target}が既に{follower}を追跡しているため、{follower}は{target}を追跡できません"
+            "FollowingStarted": "{followerName}が{target}を追跡し始めました。",
+            "FollowingStopped": "{followerName}が{target}の追跡を停止しました。",
+            "FollowingStoppedAll": "すべての追跡が停止しました。",
+            "NoActiveToken": "追跡者として使用するトークンを選択する必要があります。",
+            "NoActiveFollowing": "まず追跡者として使用するトークンを選択する必要があります。",
+            "StopButtonPressed": "追跡停止ボタンが押されました。",
+            "SelectedFollowingStopped": "{count}件の追跡が停止されました。",
+            "NoFollowsSelected": "停止する追跡が選択されていません。",
+            "NoTargetTokens": "このシーンにはターゲットトークンがありません。",
+            "CircularFollowingPrevented": "循環追跡が検出され、回避されました。{followerName}は{target}を追跡できません。",
+            "FollowRequestSent": "追跡リクエストが{target}に送信されました。",
+            "PlayerRequestedFollow": "{playerName}が{followerName}に{target}を追跡させるようリクエストしました。",
+            "ResetPosition": "コントロールの位置がデフォルトにリセットされました。",
+            "NoVisibleTargets": "このシーンには可視のターゲットがありません。",
+            "StoppedFollowing": "{followerName}は{target}の追跡を停止しました。",
+            "CannotFollowSelf": "{followerName}は自分自身を追跡することはできません。",
+            "StartedFollowing": "{followerName}は{target}を追跡し始めました。",
+            "SelectTarget": "追跡するターゲットを選択"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "追跡するターゲットを選択",
+                "Label": "追跡するトークンを選択：",
+                "Follow": "追跡"
+            },
+            "StopFollowing": {
+                "Title": "追跡を停止",
+                "Label": "停止する追跡を選択：",
+                "Stop": "停止",
+                "SelectAll": "すべて選択",
+                "OtherScenes": "他のシーンの追跡",
+                "StopAllScenes": "すべてのシーンで追跡を停止"
+            },
             "ConfirmFollow": {
                 "Title": "追跡の確認",
-                "Content": "{source}が{target}を追跡します。よろしいですか？"
+                "Content": "{source}は{target}を追跡します。よろしいですか？"
             },
             "Yes": "はい",
             "No": "いいえ",
-            "Canceled": "追跡をキャンセルしました"
+            "Cancel": "キャンセル"
+        },
+        "Errors": {
+            "NoGM": "GMが接続されていません。リクエストを処理できません。",
+            "SocketTimeout": "GMへの接続のタイムアウトが発生しました。後でもう一度お試しください。",
+            "SocketProcessingError": "ソケットメッセージの処理中にエラーが発生しました。",
+            "MissingParameters": "追跡リクエストのために必要なパラメーターが不足しています。正しいトークンを選択してください。",
+            "SocketConnectionFailed": "GMとの接続に失敗しました。GMがオンラインで、モジュールが正しく有効になっていることを確認してください。",
+            "SocketNotAvailable": "ソケット通信システムが利用できません。ページを再読み込みするか、GMに連絡してください。",
+            "SocketError": "リクエスト送信中にエラーが発生しました。もう一度お試しください。",
+            "SocketTestFailed": "ソケット接続テストに失敗しました。GMがオンラインで、モジュールが有効であることを確認してください。"
         }
     }
 }

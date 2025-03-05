@@ -1,43 +1,85 @@
 {
-
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Podążaj dalej ze zmianą sceny",
-                "Hint": "Jeśli ta opcja jest włączona, tokeny będą podążać za swoim celem nawet po zmianie sceny."
+                "Name": "Zachowaj śledzenie przy zmianie sceny",
+                "Hint": "Po włączeniu token będzie nadal śledził cel po zmianie sceny."
             },
             "InstantFollow": {
-                "Name": "Natychmiastowe przemieszczenie",
-                "Hint": "Jeśli opcja ta jest włączona, tokeny będą natychmiast przemieszczać się do nowej pozycji. Jeśli jest wyłączona, będą poruszać się z płynną animacją"
+                "Name": "Natychmiastowe śledzenie",
+                "Hint": "Po włączeniu token śledzący natychmiast przemieszcza się do pozycji celu, zamiast poruszać się stopniowo."
+            },
+            "PlayerAccess": {
+                "Name": "Dostęp graczy",
+                "Hint": "Po włączeniu gracze będą mieli dostęp do funkcji śledzenia tokenów."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Pokaż pływające przyciski",
+                "Hint": "Po włączeniu pojawią się pływające przyciski umożliwiające szybki dostęp do poleceń śledzenia."
             },
             "GitHub": {
-                "Hint": "Kliknij, aby odwiedzić GitHub modułu"
+                "Hint": "Kliknij, aby odwiedzić stronę GitHub modułu"
             }
         },
         "Controls": {
-            "Start": "Zacznij podążać (wybierz token do podążania)",
-            "StopAll": "Przestań podążać",
-            "SelectToFollow": "Wybierz token do podążania"
+            "Start": "Zacznij śledzenie tokena",
+            "Stop": "Zatrzymaj śledzenie",
+            "StopAll": "Zarządzanie śledzeniem",
+            "SelectToFollow": "Wybierz token do śledzenia",
+            "Home": "Resetuj pozycję kontroli",
+            "DragHandle": "Przesuń kontrolki"
         },
         "Notifications": {
-            "FollowingStopped": "{count} podążających osób zostało zatrzymanych",
-            "NoActiveFollowing": "Brak aktywnych podążających",
-            "SelectSource": "Wybierz token, który będzie źródłem dla podążających",
-            "SelectTarget": "Kliknij token, za którym chcesz podążać",
-            "StartedFollowing": "{source} zaczął podążać za {target}",
-            "FollowCanceled": "Anulowanie podążania",
-            "StoppedFollowing": "Token {name} przestał podążać za swoim celem",
-            "NoFollowers": "Obecnie nie ma żadnych podążających tokenów",
-            "CircularFollowingPrevented": "{follower} nie może podążać za {target}, ponieważ {target} już podąża za {follower}"
+            "FollowingStarted": "{followerName} teraz śledzi {target}.",
+            "FollowingStopped": "{followerName} przestał śledzić {target}.",
+            "FollowingStoppedAll": "Wszystkie śledzenia zostały zatrzymane.",
+            "NoActiveToken": "Musisz wybrać token, który będzie używany jako śledzący.",
+            "NoActiveFollowing": "Najpierw musisz wybrać token, który będzie używany jako śledzący.",
+            "StopButtonPressed": "Przycisk zatrzymania śledzenia został naciśnięty.",
+            "SelectedFollowingStopped": "{count} śledzenie zostało zatrzymane.",
+            "NoFollowsSelected": "Nie wybrano żadnych śledzeń do zatrzymania.",
+            "NoTargetTokens": "Brak dostępnych tokenów docelowych w tej scenie.",
+            "CircularFollowingPrevented": "Wykryto i zapobiegnięto śledzeniu w kółko. {followerName} nie może śledzić {target}.",
+            "FollowRequestSent": "Wysłano prośbę o śledzenie {target}.",
+            "PlayerRequestedFollow": "{playerName} poprosił, aby {followerName} śledził {target}.",
+            "ResetPosition": "Pozycja kontrolek została zresetowana do ustawień domyślnych.",
+            "NoVisibleTargets": "Brak widocznych celów w tej scenie.",
+            "StoppedFollowing": "{followerName} przestał śledzić {target}.",
+            "CannotFollowSelf": "{followerName} nie może śledzić siebie.",
+            "StartedFollowing": "{followerName} teraz śledzi {target}.",
+            "SelectTarget": "Wybierz cel do śledzenia"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "Wybierz cel do śledzenia",
+                "Label": "Wybierz token do śledzenia:",
+                "Follow": "Śledź"
+            },
+            "StopFollowing": {
+                "Title": "Zatrzymaj śledzenie",
+                "Label": "Wybierz śledzenie do zatrzymania:",
+                "Stop": "Zatrzymaj",
+                "SelectAll": "Wybierz wszystko",
+                "OtherScenes": "Śledzenie w innych scenach",
+                "StopAllScenes": "Zatrzymaj wszystkie śledzenia we wszystkich scenach"
+            },
             "ConfirmFollow": {
-                "Title": "Potwierdź podążanie",
-                "Content": "{source} będzie podążać za {target}. Czy na pewno?"
+                "Title": "Potwierdzenie śledzenia",
+                "Content": "{source} będzie śledził {target}. Czy jesteś pewny?"
             },
             "Yes": "Tak",
             "No": "Nie",
-            "Canceled": "Anulowanie podążania"
+            "Cancel": "Anuluj"
+        },
+        "Errors": {
+            "NoGM": "Brak połączenia z MG. Twoje żądanie nie może zostać przetworzone.",
+            "SocketTimeout": "Przekroczono czas oczekiwania na połączenie z MG. Spróbuj ponownie później.",
+            "SocketProcessingError": "Błąd podczas przetwarzania wiadomości socket.",
+            "MissingParameters": "Brak wymaganych parametrów w żądaniu śledzenia. Wybierz ważny token.",
+            "SocketConnectionFailed": "Nie udało się nawiązać połączenia z MG. Sprawdź, czy MG jest online, i upewnij się, że moduł jest włączony.",
+            "SocketNotAvailable": "System komunikacji socket nie jest dostępny. Odśwież stronę lub skontaktuj się z MG.",
+            "SocketError": "Wystąpił błąd podczas wysyłania żądania. Spróbuj ponownie.",
+            "SocketTestFailed": "Test połączenia socket nie powiódł się po kilku próbach. Sprawdź, czy MG jest online, i upewnij się, że moduł jest włączony."
         }
     }
 }

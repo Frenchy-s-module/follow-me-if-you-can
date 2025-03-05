@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Behold følging ved sceneskifte",
-                "Hint": "Hvis aktivert, vil tokens fortsette å følge målet sitt selv etter et sceneskifte"
+                "Name": "Følg ved sceneendring",
+                "Hint": "Når aktivert, vil en token fortsette å følge målet etter at scenen er endret."
             },
             "InstantFollow": {
-                "Name": "Øyeblikkelig følging",
-                "Hint": "Hvis aktivert, vil tokens øyeblikkelig flytte til sin nye posisjon. Hvis deaktivert, vil de bevege seg med en flytende animasjon"
+                "Name": "Umiddelbart følge",
+                "Hint": "Når aktivert, vil følger-tokenet bevege seg umiddelbart til målposisjonen i stedet for å bevege seg gradvis."
+            },
+            "PlayerAccess": {
+                "Name": "Spiller tilgang",
+                "Hint": "Når aktivert, vil spillerne ha tilgang til token-følgefunksjonen."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Vis flytende knapper",
+                "Hint": "Når aktivert, vises flytende knapper for rask tilgang til følgekommandoer."
             },
             "GitHub": {
-                "Hint": "Klikk for å besøke modulens GitHub"
+                "Hint": "Klikk for å besøke modulen sin GitHub-side"
             }
         },
         "Controls": {
-            "Start": "Start følging (velg et token å følge)",
-            "StopAll": "Stopp all følging",
-            "SelectToFollow": "Velg et token å følge"
+            "Start": "Start å følge et token",
+            "Stop": "Slutt å følge",
+            "StopAll": "Administrer følgere",
+            "SelectToFollow": "Velg et token å følge",
+            "Home": "Nullstill kontrollposisjon",
+            "DragHandle": "Flytt kontroller"
         },
         "Notifications": {
-            "FollowingStopped": "{count} følging(er) stoppet",
-            "NoActiveFollowing": "Ingen aktiv følging",
-            "SelectSource": "Velg et token som skal være kilden til følging",
-            "SelectTarget": "Klikk på tokenet du ønsker å følge",
-            "StartedFollowing": "{source} begynner å følge {target}",
-            "FollowCanceled": "Følging avbrutt",
-            "StoppedFollowing": "Token {name} stoppet å følge målet sitt",
-            "NoFollowers": "Ingen tokens følger for øyeblikket",
-            "CircularFollowingPrevented": "{follower} kan ikke følge {target} fordi {target} allerede følger {follower}"
+            "FollowingStarted": "{followerName} følger nå {target}.",
+            "FollowingStopped": "{followerName} har sluttet å følge {target}.",
+            "FollowingStoppedAll": "Alle følgerne har stoppet.",
+            "NoActiveToken": "Du må velge et token å bruke som følger.",
+            "NoActiveFollowing": "Du må først velge et token å bruke som følger.",
+            "StopButtonPressed": "Stoppe-følg-knappen er trykket.",
+            "SelectedFollowingStopped": "{count} følger(e) har blitt stoppet.",
+            "NoFollowsSelected": "Ingen følger er valgt for stopp.",
+            "NoTargetTokens": "Det er ingen mål-tokens tilgjengelig i denne scenen.",
+            "CircularFollowingPrevented": "Sirkulært følge er oppdaget og forhindra. {followerName} kan ikke følge {target}.",
+            "FollowRequestSent": "Førespørsel om å følge {target} er sendt.",
+            "PlayerRequestedFollow": "{playerName} har bedt om at {followerName} følger {target}.",
+            "ResetPosition": "Kontrollposisjonen har blitt tilbakestilt til standard.",
+            "NoVisibleTargets": "Ingen synlige mål er tilgjengelige i denne scenen.",
+            "StoppedFollowing": "{followerName} har sluttet å følge {target}.",
+            "CannotFollowSelf": "{followerName} kan ikke følge seg selv.",
+            "StartedFollowing": "{followerName} følger nå {target}.",
+            "SelectTarget": "Velg et mål å følge"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "Velg et mål å følge",
+                "Label": "Velg et token å følge:",
+                "Follow": "Følg"
+            },
+            "StopFollowing": {
+                "Title": "Stopp å følge",
+                "Label": "Velg følgerne som skal stoppes:",
+                "Stop": "Stopp",
+                "SelectAll": "Velg alle",
+                "OtherScenes": "Følger i andre scener",
+                "StopAllScenes": "Stopp alle følger i alle scener"
+            },
             "ConfirmFollow": {
-                "Title": "Bekreft følging",
+                "Title": "Bekreft følge",
                 "Content": "{source} vil følge {target}. Er du sikker?"
             },
             "Yes": "Ja",
             "No": "Nei",
-            "Canceled": "Følging avbrutt"
+            "Cancel": "Avbryt"
+        },
+        "Errors": {
+            "NoGM": "Ingen GM er koblet til. Din forespørsel kan ikke behandles.",
+            "SocketTimeout": "Tilkoblingstiden til GM er utløpt. Vennligst prøv igjen senere.",
+            "SocketProcessingError": "Feil under behandling av socket-meldingen.",
+            "MissingParameters": "Mangler nødvendige parametere for følgere forespørselen. Velg et gyldig token.",
+            "SocketConnectionFailed": "Kunne ikke opprette tilkobling til GM. Sjekk om GM er online og om modulen er aktivert.",
+            "SocketNotAvailable": "Socket kommunikasjonssystemet er ikke tilgjengelig. Vennligst oppdater siden eller kontakt GM.",
+            "SocketError": "Det oppstod en feil under sendingen av forespørselen. Vennligst prøv på nytt.",
+            "SocketTestFailed": "Socket-tilkoblingstesten mislyktes etter flere forsøk. Vennligst sjekk om GM er online og om modulen er aktivert."
         }
     }
 }

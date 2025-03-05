@@ -1,24 +1,29 @@
 {
   "id": "follow-me-if-you-can",
-  "title": "Follow Me If You Can",
-  "description": "A module that allows tokens to follow other tokens on the map",
-  "version": "1.0.1",
-  "author": "Frenchy's Module",
+  "title": "Follow Me If You Can!",
+  "description": "Allows one token to follow another token in real-time",
+  "version": "1.2.0",
+  "author": "Frenchy's module",
   "authors": [
     {
       "name": "Frenchy's Module",
+      "flags": {},
       "url": "https://github.com/Frenchy-s-module"
     }
   ],
-  "minimumCoreVersion": "12",
+  "minimumCoreVersion": "10",
   "compatibleCoreVersion": "12",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "10",
     "verified": "12"
   },
-  "scripts": [
+  "esmodules": [
     "scripts/main.js"
   ],
+  "styles": [
+    "styles/follow-me.css"
+  ],
+  "socket": true,
   "languages": [
     {
       "lang": "en",
@@ -29,6 +34,7 @@
       "lang": "fr",
       "name": "Français",
       "path": "languages/fr.json"
+      
     },
     {
       "lang": "de",
@@ -82,6 +88,11 @@
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
-  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.1/module.json",
-  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.0.1/follow-me-if-you-can.zip"
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/v1.2.0/module.json",
+  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/v1.2.0/module.zip",
+  "relationships": {
+    "recommends": []
+  },
+  "bugs": "https://github.com/Frenchy-s-module/follow-me-if-you-can/issues",
+  "changelog": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/tag/v1.2.0"
 }

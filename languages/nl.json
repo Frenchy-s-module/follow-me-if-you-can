@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Blijf volgen bij scènewisseling",
-                "Hint": "Indien ingeschakeld blijven tokens hun doel volgen, zelfs na een scènewisseling"
+                "Name": "Volg bij scene-wijziging",
+                "Hint": "Wanneer ingeschakeld, blijft een token zijn doel volgen na het wisselen van scène."
             },
             "InstantFollow": {
                 "Name": "Direct volgen",
-                "Hint": "Indien ingeschakeld verplaatsen tokens zich direct naar hun nieuwe positie. Indien uitgeschakeld bewegen ze met een vloeiende animatie"
+                "Hint": "Wanneer ingeschakeld, beweegt het volger-token onmiddellijk naar de doelpositie in plaats van geleidelijk."
+            },
+            "PlayerAccess": {
+                "Name": "Speler toegang",
+                "Hint": "Wanneer ingeschakeld, krijgen spelers toegang tot de token-volgfunctie."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Toon drijvende knoppen",
+                "Hint": "Wanneer ingeschakeld, worden er drijvende knoppen weergegeven voor snelle toegang tot de volgcommando's."
             },
             "GitHub": {
-                "Hint": "Klik om de GitHub van de module te bezoeken"
+                "Hint": "Klik om de GitHub-pagina van de module te bezoeken"
             }
         },
         "Controls": {
-            "Start": "Start volgen (selecteer een token om te volgen)",
-            "StopAll": "Stop alle volgacties",
-            "SelectToFollow": "Selecteer een token om te volgen"
+            "Start": "Start met volgen van een token",
+            "Stop": "Stop met volgen",
+            "StopAll": "Volgbeheer",
+            "SelectToFollow": "Kies een token om te volgen",
+            "Home": "Reset de controlepositie",
+            "DragHandle": "Verplaats de controles"
         },
         "Notifications": {
-            "FollowingStopped": "{count} volgactie(s) gestopt",
-            "NoActiveFollowing": "Geen actieve volgacties",
-            "SelectSource": "Selecteer een token dat de bron van het volgen zal zijn",
-            "SelectTarget": "Klik op de token die je wilt volgen",
-            "StartedFollowing": "{source} begint {target} te volgen",
-            "FollowCanceled": "Volgen geannuleerd",
-            "StoppedFollowing": "Token {name} is gestopt met het volgen van zijn doel",
-            "NoFollowers": "Er zijn momenteel geen tokens die volgen",
-            "CircularFollowingPrevented": "{follower} kan {target} niet volgen omdat {target} al {follower} volgt"
+            "FollowingStarted": "{followerName} volgt nu {target}.",
+            "FollowingStopped": "{followerName} is gestopt met volgen van {target}.",
+            "FollowingStoppedAll": "Alle volgacties zijn gestopt.",
+            "NoActiveToken": "Je moet een token selecteren om als volger te gebruiken.",
+            "NoActiveFollowing": "Je moet eerst een token selecteren om als volger te gebruiken.",
+            "StopButtonPressed": "De stopknop voor volgen is ingedrukt.",
+            "SelectedFollowingStopped": "{count} volgactie(s) zijn gestopt.",
+            "NoFollowsSelected": "Er zijn geen volgacties geselecteerd om te stoppen.",
+            "NoTargetTokens": "Er zijn geen doel-tokens beschikbaar in deze scène.",
+            "CircularFollowingPrevented": "Circulair volgen gedetecteerd en voorkomen. {followerName} kan {target} niet volgen.",
+            "FollowRequestSent": "Volgverzoek is verzonden voor het volgen van {target}.",
+            "PlayerRequestedFollow": "{playerName} heeft gevraagd dat {followerName} {target} volgt.",
+            "ResetPosition": "De positie van de controles is naar de standaardwaarde gereset.",
+            "NoVisibleTargets": "Er zijn geen zichtbare doelen beschikbaar in deze scène.",
+            "StoppedFollowing": "{followerName} is gestopt met volgen van {target}.",
+            "CannotFollowSelf": "{followerName} kan zichzelf niet volgen.",
+            "StartedFollowing": "{followerName} volgt nu {target}.",
+            "SelectTarget": "Kies een doel om te volgen"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "Kies een doel om te volgen",
+                "Label": "Kies een token om te volgen:",
+                "Follow": "Volgen"
+            },
+            "StopFollowing": {
+                "Title": "Stop volgacties",
+                "Label": "Kies volgacties om te stoppen:",
+                "Stop": "Stop",
+                "SelectAll": "Selecteer alles",
+                "OtherScenes": "Volgen in andere scènes",
+                "StopAllScenes": "Stop alle volgen in alle scènes"
+            },
             "ConfirmFollow": {
-                "Title": "Bevestig volgen",
-                "Content": "{source} zal {target} volgen. Weet je het zeker?"
+                "Title": "Volgen bevestigen",
+                "Content": "{source} gaat {target} volgen. Weet je het zeker?"
             },
             "Yes": "Ja",
             "No": "Nee",
-            "Canceled": "Volgen geannuleerd"
+            "Cancel": "Annuleren"
+        },
+        "Errors": {
+            "NoGM": "Er is geen GM verbonden. Je verzoek kan niet worden verwerkt.",
+            "SocketTimeout": "Verbindingsuitval met de GM. Probeer het later opnieuw.",
+            "SocketProcessingError": "Fout bij het verwerken van het socketbericht.",
+            "MissingParameters": "Ontbrekende parameters voor het volgen verzoek. Selecteer een geldig token.",
+            "SocketConnectionFailed": "Kan geen verbinding maken met de GM. Controleer of de GM online is en of de module correct is ingeschakeld.",
+            "SocketNotAvailable": "Het socket communicatiesysteem is niet beschikbaar. Vernieuw de pagina of neem contact op met de GM.",
+            "SocketError": "Er is een fout opgetreden bij het verzenden van het verzoek. Probeer het opnieuw.",
+            "SocketTestFailed": "De socket verbindingstest is mislukt na meerdere pogingen. Controleer of de GM online is en of de module correct is ingeschakeld."
         }
     }
 }
