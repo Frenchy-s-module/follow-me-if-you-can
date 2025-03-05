@@ -88,7 +88,7 @@
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
-  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/v1.2.0/module.json",
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.0/module.json",
   "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.0/follow-me-if-you-can.zip",
   "relationships": {
     "recommends": []
