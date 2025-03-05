@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Mantieni il seguimento al cambio scena",
-                "Hint": "Se attivato, i token continueranno a seguire il loro obiettivo anche dopo un cambio di scena"
+                "Name": "Mantieni il seguito al cambio di scena",
+                "Hint": "Se attivato, un token continuer\u00e0 a seguire il suo bersaglio dopo un cambio di scena."
             },
             "InstantFollow": {
-                "Name": "Seguimento istantaneo",
-                "Hint": "Se attivato, i token si sposteranno istantaneamente nella nuova posizione. Se disattivato, si muoveranno con un'animazione fluida"
+                "Name": "Segui istantaneamente",
+                "Hint": "Se attivato, il token seguace si sposter\u00e0 istantaneamente alla posizione del bersaglio invece di muoversi progressivamente."
+            },
+            "PlayerAccess": {
+                "Name": "Accesso giocatori",
+                "Hint": "Se attivato, i giocatori avranno accesso alla funzionalit\u00e0 di seguito del token."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Mostra pulsanti fluttuanti",
+                "Hint": "Se attivato, mostra pulsanti fluttuanti per un rapido accesso ai comandi di seguito."
             },
             "GitHub": {
                 "Hint": "Clicca per visitare il GitHub del modulo"
             }
         },
         "Controls": {
-            "Start": "Avvia seguimento (seleziona un token da seguire)",
-            "StopAll": "Ferma tutti i seguimenti",
-            "SelectToFollow": "Seleziona un token da seguire"
+            "Start": "Inizia a seguire un token",
+            "Stop": "Interrompi il seguito",
+            "StopAll": "Gestione dei seguiti",
+            "SelectToFollow": "Seleziona un token da seguire",
+            "Home": "Reimposta la posizione dei controlli",
+            "DragHandle": "Sposta i controlli"
         },
         "Notifications": {
-            "FollowingStopped": "{count} seguimento/i fermato/i",
-            "NoActiveFollowing": "Nessun seguimento attivo",
-            "SelectSource": "Seleziona un token che sarà la fonte del seguimento",
-            "SelectTarget": "Clicca sul token che desideri seguire",
-            "StartedFollowing": "{source} inizia a seguire {target}",
-            "FollowCanceled": "Seguimento annullato",
-            "StoppedFollowing": "Il token {name} ha smesso di seguire il suo obiettivo",
-            "NoFollowers": "Nessun token sta seguendo al momento",
-            "CircularFollowingPrevented": "{follower} non può seguire {target} perché {target} sta già seguendo {follower}"
+            "FollowingStarted": "{followerName} sta ora seguendo {target}.",
+            "FollowingStopped": "{followerName} ha smesso di seguire {target}.",
+            "FollowingStoppedAll": "Tutti i seguiti sono stati interrotti.",
+            "NoActiveToken": "Devi selezionare un token da usare come seguace.",
+            "NoActiveFollowing": "Devi prima selezionare un token da usare come seguace.",
+            "StopButtonPressed": "Il pulsante di interruzione del seguito \u00e8 stato premuto.",
+            "SelectedFollowingStopped": "{count} seguito(i) interrotto(i).",
+            "NoFollowsSelected": "Nessun seguito selezionato per l'interruzione.",
+            "NoTargetTokens": "Non ci sono token bersaglio disponibili in questa scena.",
+            "CircularFollowingPrevented": "Rilevato e impedito un seguito circolare. {followerName} non pu\u00f2 seguire {target}.",
+            "FollowRequestSent": "Richiesta di seguito inviata per seguire {target}.",
+            "PlayerRequestedFollow": "{playerName} ha richiesto che {followerName} segua {target}.",
+            "ResetPosition": "La posizione dei controlli \u00e8 stata reimpostata di default.",
+            "NoVisibleTargets": "Nessun bersaglio visibile disponibile in questa scena.",
+            "StoppedFollowing": "{followerName} ha smesso di seguire {target}",
+            "CannotFollowSelf": "{followerName} non pu\u00f2 seguire se stesso",
+            "StartedFollowing": "{followerName} sta ora seguendo {target}.",
+            "SelectTarget": "Seleziona un bersaglio da seguire"
         },
         "Dialog": {
-            "ConfirmFollow": {
-                "Title": "Conferma seguimento",
-                "Content": "{source} seguirà {target}. Sei sicuro?"
+            "SelectTarget": {
+                "Title": "Seleziona un bersaglio da seguire",
+                "Label": "Scegli un token da seguire:",
+                "Follow": "Segui"
             },
-            "Yes": "Sì",
+            "StopFollowing": {
+                "Title": "Interrompi i seguiti",
+                "Label": "Seleziona i seguiti da interrompere:",
+                "Stop": "Interrompi",
+                "SelectAll": "Seleziona tutto",
+                "OtherScenes": "Seguiti in altre scene",
+                "StopAllScenes": "Interrompi tutti i seguiti su tutte le scene"
+            },
+            "ConfirmFollow": {
+                "Title": "Conferma il seguito",
+                "Content": "{source} seguir\u00e0 {target}. Sei sicuro?"
+            },
+            "Yes": "S\u00ec",
             "No": "No",
-            "Canceled": "Seguimento annullato"
+            "Cancel": "Annulla"
+        },
+        "Errors": {
+            "NoGM": "Nessun GM connesso. La tua richiesta non pu\u00f2 essere elaborata.",
+            "SocketTimeout": "Tempo scaduto per la connessione al GM. Riprova pi\u00f9 tardi.",
+            "SocketProcessingError": "Errore durante l'elaborazione del messaggio socket.",
+            "MissingParameters": "Parametri mancanti per la richiesta di seguito. Seleziona un token valido.",
+            "SocketConnectionFailed": "Impossibile stabilire una connessione con il GM. Verifica che il GM sia online e che il modulo sia correttamente attivato.",
+            "SocketNotAvailable": "Il sistema di comunicazione socket non \u00e8 disponibile. Aggiorna la pagina o contatta il GM.",
+            "SocketError": "Si \u00e8 verificato un errore durante l'invio della richiesta. Riprova.",
+            "SocketTestFailed": "Il test di connessione socket \u00e8 fallito dopo diversi tentativi. Verifica che il GM sia online e che il modulo sia correttamente attivato."
         }
     }
 }

@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Verfolgung bei Szenenwechsel beibehalten",
-                "Hint": "Wenn aktiviert, folgen die Tokens ihrem Ziel auch nach einem Szenenwechsel weiter"
+                "Name": "Folgen beim Szenenwechsel beibehalten",
+                "Hint": "Wenn aktiviert, wird ein Token seinem Ziel auch nach einem Szenenwechsel weiter folgen."
             },
             "InstantFollow": {
-                "Name": "Sofortige Verfolgung",
-                "Hint": "Wenn aktiviert, bewegen sich die Tokens sofort zu ihrer neuen Position. Wenn deaktiviert, bewegen sie sich mit einer flüssigen Animation"
+                "Name": "Sofortiges Folgen",
+                "Hint": "Wenn aktiviert, bewegt sich der folgende Token sofort zur Zielposition, anstatt sich allmählich zu bewegen."
+            },
+            "PlayerAccess": {
+                "Name": "Spielerzugang",
+                "Hint": "Wenn aktiviert, haben die Spieler Zugriff auf die Token-Folgefunktion."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Schwebende Schaltflächen anzeigen",
+                "Hint": "Wenn aktiviert, werden schwebende Schaltflächen für einen schnellen Zugriff auf Folgebefehle angezeigt."
             },
             "GitHub": {
-                "Hint": "Klicken Sie hier, um das GitHub des Moduls zu besuchen"
+                "Hint": "Klicken, um das GitHub-Modul zu besuchen"
             }
         },
         "Controls": {
-            "Start": "Verfolgung starten (Token zum Folgen auswählen)",
-            "StopAll": "Alle Verfolgungen stoppen",
-            "SelectToFollow": "Token zum Folgen auswählen"
+            "Start": "Token folgen starten",
+            "Stop": "Folgen beenden",
+            "StopAll": "Folgen verwalten",
+            "SelectToFollow": "Wählen Sie einen Token zum Folgen aus",
+            "Home": "Steuerposition zurücksetzen",
+            "DragHandle": "Steuerung verschieben"
         },
         "Notifications": {
-            "FollowingStopped": "{count} Verfolgung(en) gestoppt",
-            "NoActiveFollowing": "Keine aktive Verfolgung",
-            "SelectSource": "Wählen Sie ein Token als Quelle der Verfolgung",
-            "SelectTarget": "Klicken Sie auf das Token, dem Sie folgen möchten",
-            "StartedFollowing": "{source} beginnt {target} zu folgen",
-            "FollowCanceled": "Verfolgung abgebrochen",
-            "StoppedFollowing": "Token {name} hat aufgehört, seinem Ziel zu folgen",
-            "NoFollowers": "Derzeit folgen keine Tokens",
-            "CircularFollowingPrevented": "{follower} kann {target} nicht folgen, da {target} bereits {follower} folgt"
+            "FollowingStarted": "{followerName} folgt jetzt {target}.",
+            "FollowingStopped": "{followerName} hat aufgehört, {target} zu folgen.",
+            "FollowingStoppedAll": "Alle Folgeaktionen wurden gestoppt.",
+            "NoActiveToken": "Sie müssen einen Token auswählen, um als Follower zu verwenden.",
+            "NoActiveFollowing": "Sie müssen zuerst einen Token auswählen, um als Follower zu verwenden.",
+            "StopButtonPressed": "Die Stopp-Taste für das Folgen wurde gedrückt.",
+            "SelectedFollowingStopped": "{count} Folge(n) wurden gestoppt.",
+            "NoFollowsSelected": "Es wurden keine Folgeaktionen zum Stoppen ausgewählt.",
+            "NoTargetTokens": "Es gibt keine verfügbaren Ziel-Token in dieser Szene.",
+            "CircularFollowingPrevented": "Zirkuläres Folgen erkannt und verhindert. {followerName} kann {target} nicht folgen.",
+            "FollowRequestSent": "Folgeanfrage gesendet, um {target} zu folgen.",
+            "PlayerRequestedFollow": "{playerName} hat beantragt, dass {followerName} {target} folgt.",
+            "ResetPosition": "Die Steuerposition wurde auf Standard zurückgesetzt.",
+            "NoVisibleTargets": "Keine sichtbaren Ziele sind in dieser Szene verfügbar.",
+            "StoppedFollowing": "{followerName} hat aufgehört, {target} zu folgen.",
+            "CannotFollowSelf": "{followerName} kann sich nicht selbst folgen.",
+            "StartedFollowing": "{followerName} folgt jetzt {target}.",
+            "SelectTarget": "Wählen Sie ein Ziel zum Folgen aus"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "Ziel zum Folgen auswählen",
+                "Label": "Wählen Sie einen Token zum Folgen aus:",
+                "Follow": "Folgen"
+            },
+            "StopFollowing": {
+                "Title": "Folgeaktionen stoppen",
+                "Label": "Wählen Sie die zu stoppenden Folgeaktionen aus:",
+                "Stop": "Stoppen",
+                "SelectAll": "Alle auswählen",
+                "OtherScenes": "Folgeaktionen in anderen Szenen",
+                "StopAllScenes": "Alle Folgeaktionen in allen Szenen stoppen"
+            },
             "ConfirmFollow": {
-                "Title": "Verfolgung bestätigen",
+                "Title": "Folgebestätigung",
                 "Content": "{source} wird {target} folgen. Sind Sie sicher?"
             },
             "Yes": "Ja",
             "No": "Nein",
-            "Canceled": "Verfolgung abgebrochen"
+            "Cancel": "Abbrechen"
+        },
+        "Errors": {
+            "NoGM": "Kein Spielleiter verbunden. Ihre Anfrage kann nicht bearbeitet werden.",
+            "SocketTimeout": "Zeitüberschreitung der Verbindung zum Spielleiter. Bitte versuchen Sie es später erneut.",
+            "SocketProcessingError": "Fehler bei der Verarbeitung der Socket-Nachricht.",
+            "MissingParameters": "Fehlende Parameter für die Folgeanfrage. Bitte wählen Sie einen gültigen Token.",
+            "SocketConnectionFailed": "Verbindung zum Spielleiter konnte nicht hergestellt werden. Überprüfen Sie, ob der Spielleiter online ist und das Modul ordnungsgemäß aktiviert ist.",
+            "SocketNotAvailable": "Das Socket-System ist nicht verfügbar. Bitte aktualisieren Sie die Seite oder kontaktieren Sie den Spielleiter.",
+            "SocketError": "Beim Senden der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+            "SocketTestFailed": "Der Socket-Verbindungstest ist nach mehreren Versuchen fehlgeschlagen. Bitte überprüfen Sie, ob der Spielleiter online ist und das Modul ordnungsgemäß aktiviert ist."
         }
     }
 }

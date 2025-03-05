@@ -2,41 +2,84 @@
     "FOLLOWMEIFYOUCAN": {
         "Settings": {
             "KeepFollowing": {
-                "Name": "Mantener seguimiento al cambiar de escena",
-                "Hint": "Si está activado, los tokens continuarán siguiendo a su objetivo incluso después de un cambio de escena"
+                "Name": "Mantener el seguimiento al cambiar de escena",
+                "Hint": "Si está activado, un token continuará siguiendo a su objetivo después de un cambio de escena."
             },
             "InstantFollow": {
                 "Name": "Seguimiento instantáneo",
-                "Hint": "Si está activado, los tokens se moverán instantáneamente a su nueva posición. Si está desactivado, se moverán con una animación fluida"
+                "Hint": "Si está activado, el token seguidor se moverá instantáneamente a la posición del objetivo en lugar de moverse gradualmente."
+            },
+            "PlayerAccess": {
+                "Name": "Acceso de jugadores",
+                "Hint": "Si está activado, los jugadores tendrán acceso a la función de seguimiento de tokens."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Mostrar botones flotantes",
+                "Hint": "Si está activado, muestra botones flotantes para un acceso rápido a los comandos de seguimiento."
             },
             "GitHub": {
-                "Hint": "Haga clic para visitar el GitHub del módulo"
+                "Hint": "Haz clic para visitar el GitHub del módulo"
             }
         },
         "Controls": {
-            "Start": "Iniciar seguimiento (seleccione un token para seguir)",
-            "StopAll": "Detener todos los seguimientos",
-            "SelectToFollow": "Seleccione un token para seguir"
+            "Start": "Comenzar a seguir un token",
+            "Stop": "Dejar de seguir",
+            "StopAll": "Gestionar seguimientos",
+            "SelectToFollow": "Selecciona un token para seguir",
+            "Home": "Restablecer la posición de los controles",
+            "DragHandle": "Mover los controles"
         },
         "Notifications": {
-            "FollowingStopped": "{count} seguimiento(s) detenido(s)",
-            "NoActiveFollowing": "No hay seguimientos activos",
-            "SelectSource": "Seleccione un token que será la fuente del seguimiento",
-            "SelectTarget": "Haga clic en el token que desea seguir",
-            "StartedFollowing": "{source} comienza a seguir a {target}",
-            "FollowCanceled": "Seguimiento cancelado",
-            "StoppedFollowing": "El token {name} ha dejado de seguir a su objetivo",
-            "NoFollowers": "No hay tokens siguiendo actualmente",
-            "CircularFollowingPrevented": "{follower} no puede seguir a {target} porque {target} ya está siguiendo a {follower}"
+            "FollowingStarted": "{followerName} ahora sigue a {target}.",
+            "FollowingStopped": "{followerName} ha dejado de seguir a {target}.",
+            "FollowingStoppedAll": "Todos los seguimientos han sido detenidos.",
+            "NoActiveToken": "Debes seleccionar un token para usar como seguidor.",
+            "NoActiveFollowing": "Primero debes seleccionar un token para usar como seguidor.",
+            "StopButtonPressed": "Se ha presionado el botón de detener seguimiento.",
+            "SelectedFollowingStopped": "{count} seguimiento(s) han sido detenidos.",
+            "NoFollowsSelected": "No se ha seleccionado ningún seguimiento para detener.",
+            "NoTargetTokens": "No hay tokens objetivo disponibles en esta escena.",
+            "CircularFollowingPrevented": "Seguimiento circular detectado y evitado. {followerName} no puede seguir a {target}.",
+            "FollowRequestSent": "Solicitud de seguimiento enviada para seguir a {target}.",
+            "PlayerRequestedFollow": "{playerName} ha solicitado que {followerName} siga a {target}.",
+            "ResetPosition": "La posición de los controles ha sido restablecida por defecto.",
+            "NoVisibleTargets": "No hay objetivos visibles disponibles en esta escena.",
+            "StoppedFollowing": "{followerName} ha dejado de seguir a {target}",
+            "CannotFollowSelf": "{followerName} no puede seguirse a sí mismo",
+            "StartedFollowing": "{followerName} ahora sigue a {target}.",
+            "SelectTarget": "Selecciona un objetivo para seguir"
         },
         "Dialog": {
+            "SelectTarget": {
+                "Title": "Seleccionar un objetivo para seguir",
+                "Label": "Elige un token para seguir:",
+                "Follow": "Seguir"
+            },
+            "StopFollowing": {
+                "Title": "Detener seguimientos",
+                "Label": "Selecciona los seguimientos a detener:",
+                "Stop": "Detener",
+                "SelectAll": "Seleccionar todo",
+                "OtherScenes": "Seguimientos en otras escenas",
+                "StopAllScenes": "Detener todos los seguimientos en todas las escenas"
+            },
             "ConfirmFollow": {
-                "Title": "Confirmar seguimiento",
-                "Content": "{source} seguirá a {target}. ¿Está seguro?"
+                "Title": "Confirmación de seguimiento",
+                "Content": "{source} seguirá a {target}. ¿Estás seguro?"
             },
             "Yes": "Sí",
             "No": "No",
-            "Canceled": "Seguimiento cancelado"
+            "Cancel": "Cancelar"
+        },
+        "Errors": {
+            "NoGM": "No hay un MJ conectado. Tu solicitud no puede ser procesada.",
+            "SocketTimeout": "Tiempo de espera agotado para la conexión con el MJ. Inténtalo de nuevo más tarde.",
+            "SocketProcessingError": "Error al procesar el mensaje del socket.",
+            "MissingParameters": "Faltan parámetros para la solicitud de seguimiento. Selecciona un token válido.",
+            "SocketConnectionFailed": "No se pudo establecer una conexión con el MJ. Verifica que el MJ esté en línea y que el módulo esté activado correctamente.",
+            "SocketNotAvailable": "El sistema de comunicación del socket no está disponible. Actualiza la página o contacta al MJ.",
+            "SocketError": "Ocurrió un error al enviar la solicitud. Inténtalo de nuevo.",
+            "SocketTestFailed": "La prueba de conexión del socket falló después de varios intentos. Verifica que el MJ esté en línea y que el módulo esté activado correctamente."
         }
     }
 }
