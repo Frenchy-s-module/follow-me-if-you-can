@@ -474,9 +474,7 @@ function createFloatingControls() {
             const followerToken = canvas.tokens.controlled[0];
             
             if (followerToken) {
-                selectionMode = true;
-                sourceToken = followerToken;
-                ui.notifications.info(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.SelectTarget"));
+                activateSelectionMode(followerToken);
             } else {
                 ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoActiveFollowing"));
             }
@@ -1020,140 +1018,12 @@ Hooks.on('canvasReady', async () => {
     }
 });
 
-// Fonction pour afficher la boîte de dialogue de sélection des suivis à arrêter
-function showStopFollowingDialog() {
-    if (!game.follow?.hooks || game.follow.hooks.size === 0) {
-        ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoActiveFollowing"));
-        return;
-    }
-    
-    let relationshipsList = '';
-    
-    // Générer la liste des relations de suivi actives dans la scène courante
-    game.follow.hooks.forEach((hookId, followerId) => {
-        const followerToken = canvas.tokens.get(followerId);
-        if (followerToken) {
-            // Relation de suivi active dans la scène courante
-            const relation = followData.relationships.get(followerId);
-            if (relation) {
-                relationshipsList += `
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" data-type="follow" value="${followerId}" checked />
-                        <span>${followerToken.name} → ${relation.targetName}</span>
-                    </label>
-                </div>`;
-            }
-        }
-    });
-    
-    // Vérifier s'il existe des relations de suivi dans d'autres scènes
-    const allRelationships = Array.from(followData.relationships.entries());
-    const offSceneRelationships = allRelationships.filter(([id, _]) => !canvas.tokens.get(id));
-    
-    if (offSceneRelationships.length > 0) {
-        relationshipsList += `<h3>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.OtherScenes")}</h3>`;
-        
-        offSceneRelationships.forEach(([id, rel]) => {
-            relationshipsList += `
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" data-type="follow" value="${id}" checked />
-                    <span>${rel.followerName} → ${rel.targetName}</span>
-                </label>
-            </div>`;
-        });
-    }
-    
-    // Contenu de la boîte de dialogue
-    const content = `
-    <form>
-        <div class="form-group">
-            <label>
-                <input type="checkbox" id="select-all" checked />
-                <strong>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.SelectAll")}</strong>
-            </label>
-        </div>
-        <div class="follow-relationships-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 10px;">
-            ${relationshipsList}
-        </div>
-        <div class="form-group">
-            <label>
-                <input type="checkbox" id="stop-all-scenes" />
-                <strong>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.StopAllScenes")}</strong>
-            </label>
-        </div>
-    </form>`;
-    
-    // Créer et afficher la boîte de dialogue
-    new Dialog({
-        title: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.Title"),
-        content: content,
-        buttons: {
-            stop: {
-                icon: '<i class="fas fa-user-slash"></i>',
-                label: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.Stop"),
-                callback: html => {
-                    // Vérifier si l'option "arrêter tous les suivis sur toutes les scènes" est cochée
-                    if (html.find('#stop-all-scenes').is(':checked')) {
-                        stopAllFollowingGlobal();
-                        return;
-                    }
-                    
-                    const selectedIds = [];
-                    html.find('input[data-type="follow"]:checked').each((i, el) => {
-                        selectedIds.push(el.value);
-                    });
-                    
-                    if (selectedIds.length > 0) {
-                        // Arrêter les suivis sélectionnés
-                        selectedIds.forEach(id => {
-                            stopFollowing(id);
-                        });
-                        
-                        ui.notifications.info(game.i18n.format("FOLLOWMEIFYOUCAN.Notifications.SelectedFollowingStopped", {
-                            count: selectedIds.length
-                        }));
-                    } else {
-                        ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoFollowsSelected"));
-                    }
-                }
-            },
-            cancel: {
-                icon: '<i class="fas fa-times"></i>',
-                label: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.Cancel"),
-                callback: () => {}
-            }
-        },
-        default: "stop",
-        render: html => {
-            // Ajouter un événement pour l'option "tout sélectionner"
-            html.find('#select-all').change(event => {
-                const checked = event.currentTarget.checked;
-                html.find('input[data-type="follow"]').prop('checked', checked);
-            });
-        }
-    }).render(true);
-}
+// Stockage des dernières positions
+const lastPositions = new Map();
 
-// Fonction pour arrêter tous les suivis (y compris sur les autres scènes)
-function stopAllFollowingGlobal() {
-    if (!game.follow?.hooks) return;
-    
-    // Arrêter tous les hooks de suivi
-    game.follow.hooks.forEach((hookId, followerId) => {
-        Hooks.off('updateToken', hookId);
-    });
-    
-    // Vider les collections
-    game.follow.hooks.clear();
-    followData.relationships.clear();
-    
-    // Sauvegarder les modifications
-    followData.saveToFlags();
-    
-    ui.notifications.info(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.FollowingStoppedAll"));
-}
+// Déclaration des variables globales
+let selectionMode = false;
+let sourceToken = null;
 
 // Gestion de la sélection des tokens pour le suivi
 Hooks.on('controlToken', (token, selected) => {
@@ -1180,11 +1050,6 @@ Hooks.on('controlToken', (token, selected) => {
     token.control({releaseOthers: true});
 });
 
-// Stockage des dernières positions
-const lastPositions = new Map();
-let selectionMode = false;
-let sourceToken = null;
-
 // Classe pour le lien GitHub
 class GitHubLink extends FormApplication {
     static get defaultOptions() {
@@ -1203,6 +1068,17 @@ class GitHubLink extends FormApplication {
 
 Hooks.once('init', FollowMeIfYouCan.init);
 Hooks.once('ready', FollowMeIfYouCan.ready);
+
+// Fonction pour activer le mode de sélection pour choisir un token à suivre
+function activateSelectionMode(followerToken) {
+    if (followerToken) {
+        selectionMode = true;
+        sourceToken = followerToken;
+        ui.notifications.info(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.SelectTarget"));
+    } else {
+        ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoActiveFollowing"));
+    }
+}
 
 // Fonction pour démarrer le suivi entre deux tokens
 function startFollowing(followerToken, targetToken) {
@@ -1458,4 +1334,139 @@ function checkCircularFollowing(followerId, targetId) {
 // Vérifier la valeur du paramètre de conservation du suivi lors du changement de scène
 function shouldKeepFollowing() {
     return game.settings.get("follow-me-if-you-can", "keepFollowing");
+}
+
+// Fonction pour arrêter tous les suivis (y compris sur les autres scènes)
+function stopAllFollowingGlobal() {
+    if (!game.follow?.hooks) return;
+    
+    // Arrêter tous les hooks de suivi
+    game.follow.hooks.forEach((hookId, followerId) => {
+        Hooks.off('updateToken', hookId);
+    });
+    
+    // Vider les collections
+    game.follow.hooks.clear();
+    followData.relationships.clear();
+    
+    // Sauvegarder les modifications
+    followData.saveToFlags();
+    
+    ui.notifications.info(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.FollowingStoppedAll"));
+}
+
+// Fonction pour afficher la boîte de dialogue de sélection des suivis à arrêter
+function showStopFollowingDialog() {
+    if (!game.follow?.hooks || game.follow.hooks.size === 0) {
+        ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoActiveFollowing"));
+        return;
+    }
+    
+    let relationshipsList = '';
+    
+    // Générer la liste des relations de suivi actives dans la scène courante
+    game.follow.hooks.forEach((hookId, followerId) => {
+        const followerToken = canvas.tokens.get(followerId);
+        if (followerToken) {
+            // Relation de suivi active dans la scène courante
+            const relation = followData.relationships.get(followerId);
+            if (relation) {
+                relationshipsList += `
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" data-type="follow" value="${followerId}" checked />
+                        <span>${followerToken.name} → ${relation.targetName}</span>
+                    </label>
+                </div>`;
+            }
+        }
+    });
+    
+    // Vérifier s'il existe des relations de suivi dans d'autres scènes
+    const allRelationships = Array.from(followData.relationships.entries());
+    const offSceneRelationships = allRelationships.filter(([id, _]) => !canvas.tokens.get(id));
+    
+    if (offSceneRelationships.length > 0) {
+        relationshipsList += `<h3>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.OtherScenes")}</h3>`;
+        
+        offSceneRelationships.forEach(([id, rel]) => {
+            relationshipsList += `
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" data-type="follow" value="${id}" checked />
+                    <span>${rel.followerName} → ${rel.targetName}</span>
+                </label>
+            </div>`;
+        });
+    }
+    
+    // Contenu de la boîte de dialogue
+    const content = `
+    <form>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="select-all" checked />
+                <strong>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.SelectAll")}</strong>
+            </label>
+        </div>
+        <div class="follow-relationships-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 10px;">
+            ${relationshipsList}
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="stop-all-scenes" />
+                <strong>${game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.StopAllScenes")}</strong>
+            </label>
+        </div>
+    </form>`;
+    
+    // Créer et afficher la boîte de dialogue
+    new Dialog({
+        title: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.Title"),
+        content: content,
+        buttons: {
+            stop: {
+                icon: '<i class="fas fa-user-slash"></i>',
+                label: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.StopFollowing.Stop"),
+                callback: html => {
+                    // Vérifier si l'option "arrêter tous les suivis sur toutes les scènes" est cochée
+                    if (html.find('#stop-all-scenes').is(':checked')) {
+                        stopAllFollowingGlobal();
+                        return;
+                    }
+                    
+                    const selectedIds = [];
+                    html.find('input[data-type="follow"]:checked').each((i, el) => {
+                        selectedIds.push(el.value);
+                    });
+                    
+                    if (selectedIds.length > 0) {
+                        // Arrêter les suivis sélectionnés
+                        selectedIds.forEach(id => {
+                            stopFollowing(id);
+                        });
+                        
+                        ui.notifications.info(game.i18n.format("FOLLOWMEIFYOUCAN.Notifications.SelectedFollowingStopped", {
+                            count: selectedIds.length
+                        }));
+                    } else {
+                        ui.notifications.warn(game.i18n.localize("FOLLOWMEIFYOUCAN.Notifications.NoFollowsSelected"));
+                    }
+                }
+            },
+            cancel: {
+                icon: '<i class="fas fa-times"></i>',
+                label: game.i18n.localize("FOLLOWMEIFYOUCAN.Dialog.Cancel"),
+                callback: () => {}
+            }
+        },
+        default: "stop",
+        render: html => {
+            // Ajouter un événement pour l'option "tout sélectionner"
+            html.find('#select-all').change(event => {
+                const checked = event.currentTarget.checked;
+                html.find('input[data-type="follow"]').prop('checked', checked);
+            });
+        }
+    }).render(true);
 }

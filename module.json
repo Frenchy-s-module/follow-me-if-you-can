@@ -2,7 +2,7 @@
   "id": "follow-me-if-you-can",
   "title": "Follow Me If You Can!",
   "description": "Allows one token to follow another token in real-time",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Frenchy's module",
   "authors": [
     {
@@ -11,10 +11,10 @@
       "url": "https://github.com/Frenchy-s-module"
     }
   ],
-  "minimumCoreVersion": "10",
+  "minimumCoreVersion": "12",
   "compatibleCoreVersion": "12",
   "compatibility": {
-    "minimum": "10",
+    "minimum": "12",
     "verified": "12"
   },
   "esmodules": [
@@ -88,11 +88,11 @@
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
-  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.0/module.json",
-  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.0/follow-me-if-you-can.zip",
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/v1.2.1/module.json",
+  "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.1/follow-me-if-you-can.zip",
   "relationships": {
     "recommends": []
   },
   "bugs": "https://github.com/Frenchy-s-module/follow-me-if-you-can/issues",
-  "changelog": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/tag/V1.2.0"
+  "changelog": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/tag/v1.2.1"
 }
