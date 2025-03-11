@@ -88,11 +88,11 @@
     }
   ],
   "url": "https://github.com/Frenchy-s-module/follow-me-if-you-can",
-  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/v1.2.1/module.json",
+  "manifest": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.1/module.json",
   "download": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/download/V1.2.1/follow-me-if-you-can.zip",
   "relationships": {
     "recommends": []
   },
   "bugs": "https://github.com/Frenchy-s-module/follow-me-if-you-can/issues",
-  "changelog": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/tag/v1.2.1"
+  "changelog": "https://github.com/Frenchy-s-module/follow-me-if-you-can/releases/tag/V1.2.1"
 }
