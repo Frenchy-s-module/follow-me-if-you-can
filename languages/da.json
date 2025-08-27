@@ -1,0 +1,85 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Behold følging ved sceneskift",
+                "Hint": "Hvis aktiveret, vil en token fortsætte med at følge sit mål efter et sceneskift."
+            },
+            "InstantFollow": {
+                "Name": "Øjeblikkelig følging",
+                "Hint": "Hvis aktiveret, vil den følgende token straks bevæge sig til målets position i stedet for at bevæge sig gradvist."
+            },
+            "PlayerAccess": {
+                "Name": "Spilleradgang",
+                "Hint": "Hvis aktiveret, vil spillerne have adgang til token-følgingsfunktionen."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Vis flydende knapper",
+                "Hint": "Hvis aktiveret, vises flydende knapper for hurtig adgang til følgingskommandoer."
+            },
+            "GitHub": {
+                "Hint": "Klik for at besøge modulets GitHub"
+            }
+        },
+        "Controls": {
+            "Start": "Start med at følge en token",
+            "Stop": "Stop med at følge",
+            "StopAll": "Administrer følgninger",
+            "SelectToFollow": "Vælg en token at følge",
+            "Home": "Nulstil kontrolposition",
+            "DragHandle": "Flyt kontrollerne"
+        },
+        "Notifications": {
+            "FollowingStarted": "{followerName} følger nu {target}.",
+            "FollowingStopped": "{followerName} er stoppet med at følge {target}.",
+            "FollowingStoppedAll": "Alle følgninger er stoppet.",
+            "NoActiveToken": "Du skal vælge en token til at bruge som følger.",
+            "NoActiveFollowing": "Du skal først vælge en token til at bruge som følger.",
+            "StopButtonPressed": "Stop-knappen for følgning er blevet trykket.",
+            "SelectedFollowingStopped": "{count} følgning(er) er stoppet.",
+            "NoFollowsSelected": "Ingen følgninger er blevet valgt til at stoppe.",
+            "NoTargetTokens": "Der er ingen tilgængelige måltokens i denne scene.",
+            "CircularFollowingPrevented": "Cirkulær følgning registreret og forhindret. {followerName} kan ikke følge {target}.",
+            "FollowRequestSent": "Følg anmodning sendt for at følge {target}.",
+            "PlayerRequestedFollow": "{playerName} har anmodet om, at {followerName} følger {target}.",
+            "ResetPosition": "Kontrolpositionen er nulstillet til standard.",
+            "NoVisibleTargets": "Ingen synlige mål er tilgængelige i denne scene.",
+            "StoppedFollowing": "{followerName} er stoppet med at følge {target}",
+            "CannotFollowSelf": "{followerName} kan ikke følge sig selv",
+            "StartedFollowing": "{followerName} følger nu {target}.",
+            "SelectTarget": "Vælg et mål at følge"
+        },
+        "Dialog": {
+            "SelectTarget": {
+                "Title": "Vælg et mål at følge",
+                "Label": "Vælg en token at følge:",
+                "Follow": "Følg"
+            },
+            "StopFollowing": {
+                "Title": "Stop følgninger",
+                "Label": "Vælg de følgninger, der skal stoppes:",
+                "Stop": "Stop",
+                "SelectAll": "Vælg alle",
+                "OtherScenes": "Følgninger i andre scener",
+                "StopAllScenes": "Stop alle følgninger på alle scener"
+            },
+            "ConfirmFollow": {
+                "Title": "Bekræftelse af følgning",
+                "Content": "{source} vil følge {target}. Er du sikker?"
+            },
+            "Yes": "Ja",
+            "No": "Nej",
+            "Cancel": "Annuller"
+        },
+        "Errors": {
+            "NoGM": "Ingen GM er forbundet. Din anmodning kan ikke behandles.",
+            "SocketTimeout": "Timeout for forbindelsen til GM. Prøv igen senere.",
+            "SocketProcessingError": "Fejl under behandling af socket-besked.",
+            "MissingParameters": "Manglende parametre for følgningsanmodning. Vælg en gyldig token.",
+            "SocketConnectionFailed": "Kunne ikke oprette forbindelse til GM. Kontroller, at GM er online, og at modulet er korrekt aktiveret.",
+            "SocketNotAvailable": "Socketsystemet er ikke tilgængeligt. Opdater siden eller kontakt GM.",
+            "SocketError": "Der opstod en fejl under afsendelse af anmodningen. Prøv igen.",
+            "SocketTestFailed": "Socketforbindelsestesten mislykkedes efter flere forsøg. Kontroller, at GM er online, og at modulet er korrekt aktiveret."
+        }
+    }
+}

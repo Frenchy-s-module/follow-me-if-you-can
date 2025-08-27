@@ -1,0 +1,85 @@
+{
+    "FOLLOWMEIFYOUCAN": {
+        "Settings": {
+            "KeepFollowing": {
+                "Name": "Continua a seguire al cambio di scena",
+                "Hint": "Se attivato, un token continuerà a seguire il suo bersaglio dopo un cambio di scena."
+            },
+            "InstantFollow": {
+                "Name": "Segui istantaneamente",
+                "Hint": "Se attivato, il token che sta seguendo si sposterà istantaneamente alla posizione del bersaglio invece di muoversi progressivamente."
+            },
+            "PlayerAccess": {
+                "Name": "Accesso giocatori",
+                "Hint": "Se attivato, i giocatori avranno accesso alla funzionalità per seguire il token."
+            },
+            "ShowFloatingButtons": {
+                "Name": "Mostra pulsanti fluttuanti",
+                "Hint": "Se attivato, mostra pulsanti fluttuanti per un rapido accesso ai comandi per seguire."
+            },
+            "GitHub": {
+                "Hint": "Clicca per visitare il GitHub del modulo"
+            }
+        },
+        "Controls": {
+            "Start": "Inizia a seguire un token",
+            "Stop": "Smetti di seguire",
+            "StopAll": "Gestione inseguimento",
+            "SelectToFollow": "Seleziona un token da seguire",
+            "Home": "Reimposta la posizione dei controlli",
+            "DragHandle": "Sposta i controlli"
+        },
+        "Notifications": {
+            "FollowingStarted": "{followerName} sta ora seguendo {target}.",
+            "FollowingStopped": "{followerName} ha smesso di seguire {target}.",
+            "FollowingStoppedAll": "Tutti gli inseguimenti sono stati interrotti.",
+            "NoActiveToken": "Devi selezionare un token da usare come inseguitore.",
+            "NoActiveFollowing": "Devi prima selezionare un token da usare come inseguitore.",
+            "StopButtonPressed": "Il pulsante di interruzione inseguimento è stato premuto.",
+            "SelectedFollowingStopped": "{count} inseguimento(i) interrotto(i).",
+            "NoFollowsSelected": "Nessun inseguitore selezionato per l'interruzione.",
+            "NoTargetTokens": "Non ci sono token bersaglio disponibili in questa scena.",
+            "CircularFollowingPrevented": "Rilevato e impedito un inseguimento circolare. {followerName} non può seguire {target}.",
+            "FollowRequestSent": "Richiesta di inseguimento inviata per seguire {target}.",
+            "PlayerRequestedFollow": "{playerName} ha richiesto che {followerName} segua {target}.",
+            "ResetPosition": "La posizione dei controlli è stata reimpostata di default.",
+            "NoVisibleTargets": "Nessun bersaglio visibile disponibile in questa scena.",
+            "StoppedFollowing": "{followerName} ha smesso di seguire {target}",
+            "CannotFollowSelf": "{followerName} non può seguire se stesso",
+            "StartedFollowing": "{followerName} sta ora seguendo {target}.",
+            "SelectTarget": "Seleziona un bersaglio da seguire"
+        },
+        "Dialog": {
+            "SelectTarget": {
+                "Title": "Seleziona un bersaglio da seguire",
+                "Label": "Scegli un token da seguire:",
+                "Follow": "Segui"
+            },
+            "StopFollowing": {
+                "Title": "Interrompi gli inseguimenti",
+                "Label": "Seleziona gli inseguimenti da interrompere:",
+                "Stop": "Interrompi",
+                "SelectAll": "Seleziona tutto",
+                "OtherScenes": "Inseguimenti in altre scene",
+                "StopAllScenes": "Interrompi tutti gli inseguimenti su tutte le scene"
+            },
+            "ConfirmFollow": {
+                "Title": "Conferma inseguimento",
+                "Content": "{source} seguirà {target}. Sei sicuro?"
+            },
+            "Yes": "Si",
+            "No": "No",
+            "Cancel": "Annulla"
+        },
+        "Errors": {
+            "NoGM": "Nessun GM connesso. La tua richiesta non può essere elaborata.",
+            "SocketTimeout": "Tempo scaduto per la connessione al GM. Riprova più tardi.",
+            "SocketProcessingError": "Errore durante l'elaborazione del messaggio socket.",
+            "MissingParameters": "Parametri mancanti per la richiesta di inseguimento. Seleziona un token valido.",
+            "SocketConnectionFailed": "Impossibile stabilire una connessione con il GM. Verifica che il GM sia online e che il modulo sia correttamente attivato.",
+            "SocketNotAvailable": "Il sistema di comunicazione socket non è disponibile. Aggiorna la pagina o contatta il GM.",
+            "SocketError": "Si è verificato un errore durante l'invio della richiesta. Riprova.",
+            "SocketTestFailed": "Il test di connessione socket è fallito dopo diversi tentativi. Verifica che il GM sia online e che il modulo sia correttamente attivato."
+        }
+    }
+}
