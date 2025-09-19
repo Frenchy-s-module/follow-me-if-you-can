@@ -1157,6 +1157,12 @@ function startFollowing(followerToken, targetToken) {
     // Utiliser l'implémentation asynchrone de saveToFlags (qui vérifie déjà si le jeu est prêt)
     followData.saveToFlags();
 
+    // Si un combat est en cours ou a été mis en pause, ne pas enregistrer le hook maintenant
+    if (pausedByCombat || game.combat?.started) {
+        ui.notifications.info("Le suivi est mis en pause pendant le combat et reprendra à la fin.");
+        return;
+    }
+
     // Créer un hook pour suivre les mises à jour du token cible
     const hookId = Hooks.on('updateToken', async (tokenDoc, changes) => {
         if (tokenDoc.id !== targetToken.id) return;
@@ -1298,6 +1304,8 @@ Hooks.on('canvasReady', async () => {
 // Fonction pour recharger les relations de suivi
 async function reloadFollowRelationships() {
     if (!game.user?.isGM || !shouldKeepFollowing()) return;
+    // Ne pas restaurer pendant un combat ou si nous sommes en pause combat
+    if (pausedByCombat || game.combat?.started) return;
     
     try {
         console.log("Follow Me If You Can | Reloading follow relationships");
@@ -1553,3 +1561,67 @@ function showStopFollowingDialog() {
         cleanup();
     });
 }
+
+// Mise en pause/reprise automatique pendant les combats
+let pausedByCombat = false;
+
+function pauseAllFollowingDueToCombat() {
+    if (!game.user?.isGM) return;
+    if (!game.follow?.hooks || game.follow.hooks.size === 0) {
+        pausedByCombat = true; // même sans hook, marquer la pause
+        return;
+    }
+    if (pausedByCombat) return;
+
+    // Désactiver les hooks de suivi sans effacer les relations
+    game.follow.hooks.forEach((hookId) => {
+        Hooks.off('updateToken', hookId);
+    });
+    game.follow.hooks.clear();
+    pausedByCombat = true;
+}
+
+function resumeAllFollowingAfterCombat() {
+    if (!game.user?.isGM) return;
+    if (!pausedByCombat) return;
+
+    pausedByCombat = false;
+
+    // Recréer les suivis depuis les relations mémorisées
+    const relationships = Array.from(followData.relationships.values());
+    for (const rel of relationships) {
+        const followerToken = canvas.tokens.placeables.find((t) => t.actor?.id === rel.followerId || t.id === rel.followerId);
+        const targetToken = canvas.tokens.placeables.find((t) => t.actor?.id === rel.targetId || t.id === rel.targetId);
+        if (followerToken && targetToken) {
+            startFollowing(followerToken, targetToken);
+        }
+    }
+}
+
+// Hooks de combat — pause au démarrage, reprise à la fin (avec garde-fous)
+Hooks.on('combatStart', () => {
+    pauseAllFollowingDueToCombat();
+});
+
+Hooks.on('combatEnd', () => {
+    resumeAllFollowingAfterCombat();
+});
+
+// Garde-fous supplémentaires selon versions/flux
+Hooks.on('deleteCombat', () => {
+    resumeAllFollowingAfterCombat();
+});
+
+// Gestion robuste via updateCombat (détection du passage started true/false)
+Hooks.on('updateCombat', (combat, changes) => {
+    if (!game.user?.isGM) return;
+    // Pause quand on passe à started: true
+    if (changes?.started === true || (combat?.started && typeof changes.round === 'number' && changes.round === 1)) {
+        pauseAllFollowingDueToCombat();
+        return;
+    }
+    // Reprise quand on passe à started: false
+    if (changes?.started === false) {
+        resumeAllFollowingAfterCombat();
+    }
+});
