@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![Foundry v10](https://img.shields.io/badge/foundry-v10-green)
-![Foundry v11](https://img.shields.io/badge/foundry-v11-green)
-![Foundry v12](https://img.shields.io/badge/foundry-v12-green)
+![Foundry v10](https://img.shields.io/badge/foundry-v13-green)
+![Foundry v11](https://img.shields.io/badge/foundry-v13-green)
+![Foundry v12](https://img.shields.io/badge/foundry-v13-green)
 ![Latest Release](https://img.shields.io/github/v/release/Frenchy-s-module/follow-me-if-you-can?color=blue)
 ![GitHub Downloads](https://img.shields.io/github/downloads/Frenchy-s-module/follow-me-if-you-can/total?color=blue)
 
